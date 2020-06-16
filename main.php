@@ -24,6 +24,7 @@
       }
       mysqli_close($conn);
 ?>
+
   </table>
 </center>
 </body>

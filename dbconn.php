@@ -12,6 +12,7 @@
     printf("Connect failed: %s\n", $conn->connect_error);
     exit();
   }
+  
 
   //안녕하세요
 
