@@ -7,21 +7,20 @@
   <title>Judgement</title>
   <script>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     function checkInputForm()
     {
       // Id 값을 입력받았는지 확인합니다.
       if(!document.login_input_form.user_id.value)
       {
-        alert('Please enter your Id');
+        alert('아이디를 입력하세요.');
         document.login_input_form.user_id.focus();
         return;
       }
       // Password 값을 입력받았는지 확인합니다.
       if(!document.login_input_form.user_password.value)
       {
-        alert('Please enter your Password');
+        alert('비밀번호를 입력하세요.');
         document.login_input_form.user_password.focus();
         return;
       }
@@ -29,9 +28,6 @@
       document.login_input_form.submit();
     }
 
-=======
-=======
->>>>>>> a406d0a2cfa1f0798404e86f9e0763f72dabdb2d
     // function checkInputForm()
     // {
     //   // Id 값을 입력받았는지 확인합니다.
@@ -51,37 +47,20 @@
     //
     //   document.login_input_form.submit();
     // }
-<<<<<<< HEAD
->>>>>>> d76ef886966f7a4cde32552ef2b8a47782070ee7
-=======
->>>>>>> a406d0a2cfa1f0798404e86f9e0763f72dabdb2d
-
   </script>
 
 </head>
 <body>
   <center>
   <h1> 홈페이지 이름을 입력해주세요. </h1>
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <form name = "login_input_form" action = "login.php" method = "post">
-    <label> 아이디: </label><input type="text" name = "user_id"><br>
-    <label> 비밀번호 : </label><input type="password" name =
-    "user_password"><br><br>
-    <input type="button" value="회원가입" onclick="checkInputForm()">
-=======
-=======
->>>>>>> a406d0a2cfa1f0798404e86f9e0763f72dabdb2d
+
   <form name = "login_input_form" action = "login_check.php" method = "post">
     <label> 아이디: </label><input type="text" name = "user_id"><br>
     <label> 비밀번호 : </label><input type="password" name ="user_password">
     <br><br>
     <input type="submit" value="로그인">
     <input type="button" value="회원가입" onclick="location.href='join_form.php'";>
-<<<<<<< HEAD
->>>>>>> d76ef886966f7a4cde32552ef2b8a47782070ee7
-=======
->>>>>>> a406d0a2cfa1f0798404e86f9e0763f72dabdb2d
+
   </form>
 </center>
 </body>
