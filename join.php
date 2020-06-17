@@ -35,5 +35,6 @@
     //   location.href = './index.html';
     // </script>
     echo "<script> alert('중복된 아이디입니다. 중복 검사를 해주세요.'); </script>";
+    echo "<script> window.history.back(); </script>";
     //location.href='./login_form.php'</script>";
   }
