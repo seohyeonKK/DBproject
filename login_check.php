@@ -23,7 +23,7 @@ if ($id =$row['member_id'] && $pwd == $row['member_pw']){
   //echo"<center><br><br><br>";
   //echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
   echo "&nbsp; <a href='logout.php'><input type='button' value='Logout'></a>";
-  echo "<script>location.href='mypage.php';</script>";
+  echo "<script>location.href='main.php';</script>"; // 로그인 시 메인페이지로 이동하도록
 
   //
 }
