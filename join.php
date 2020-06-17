@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?
   include './dbconn.php';
 
@@ -11,6 +10,12 @@
   $result = mysqli_query($conn, $query);
   $num = mysqli_num_rows($result);
 
+  // if ( ($id=='') || ($pwd=='') ){ // id,pw 공백일 시
+  //   echo "<script> alert('아이디 또는 비밀번호를 입력해'); </script>";
+  //   echo "<script> window.history.back(); </script>";
+  //   return;
+  // }
+
   // 데이터 받아온 것을 넘깁니다.
   // 중복된 것이 없으면 if(!0) 하여 if문의 조건을 만족하게 됩니다.
   if(!$num)
@@ -19,7 +24,7 @@
     //$query3 = "INSERT INTO member_info(member_pw) VALUES ('$password')";
     mysqli_query($conn, $query2);
     //mysqli_query($conn, $query3);
-    echo "<script> alert('Welcome!'); </script>";
+    echo "<script> alert('회원가입 성공! 환영합니다 :D'); </script>";
     //location.href='./main.php'</script>";
   }
   else
@@ -29,30 +34,6 @@
     //   alert('Duplicated Id');
     //   location.href = './index.html';
     // </script>
-    echo "<script> alert('Duplicated Id'); </script>";
+    echo "<script> alert('중복된 아이디입니다. 중복 검사를 해주세요.'); </script>";
     //location.href='./login_form.php'</script>";
   }
-=======
-<?php
-session_start();
-if($_SESSION['user_id'] == null){ //로그인x
-?>
->>>>>>> a406d0a2cfa1f0798404e86f9e0763f72dabdb2d
-
-<center><br><br><br>
-<form name="login_form" action="login_check.php" method="post">
-  <label> 아이디: </label><input type="text" name = "user_id"><br>
-  <label> 비밀번호 : </label><input type="password" name ="user_password">
-  <br><br>
-  <input type="submit" name= "login" value="로그인">
-</form>
-</center>
-
-<?php
-}else{
-  echo"<center><br><br><br>";
-  //echo $_SESSION['id']."(".$_SESSION['id']")님이 로그인 하였습니다.";
-  echo "&nbsp; <a href='logout.php'><input type='button' value='Logout'></a>";
-  echo "</center>";
-}
- ?>
