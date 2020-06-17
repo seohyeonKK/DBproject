@@ -37,6 +37,3 @@
     echo "<script> alert('중복된 아이디입니다. 중복 검사를 해주세요.'); </script>";
     //location.href='./login_form.php'</script>";
   }
-
-
-?>
