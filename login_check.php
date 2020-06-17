@@ -18,7 +18,7 @@ $row = mysqli_fetch_array($result);
 
 if ($id =$row['member_id'] && $pwd == $row['member_pw']){
   $_SESSION['id'] = $row['member_id'];
-  echo "<script>window.alert('login 완료');</script>";
+  echo "<script>window.alert('로그인 완료');</script>";
   //echo"<center><br><br><br>";
   //echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
   echo "&nbsp; <a href='logout.php'><input type='button' value='Logout'></a>";
@@ -27,7 +27,7 @@ if ($id =$row['member_id'] && $pwd == $row['member_pw']){
   //
 }
 else{
-  echo "<script>window.alert('login 실패'); </script>";
+  echo "<script>window.alert('로그인 실패'); </script>";
   echo "<script>location.href='login.php';</script>";
   //echo "<script>location.href='login.php';</script>";
 }
