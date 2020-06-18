@@ -47,7 +47,11 @@
             <th width =250>&nbsp;계좌 번호&nbsp;</th>
          </tr>
       </table>
+
       ";
+
+
+
 
       while ($row = mysqli_fetch_array($result))
       {
@@ -57,22 +61,39 @@
         $result2 = mysqli_query($conn, $query2);
         $row2 = mysqli_fetch_array($result2);
 
+        $cheater_code = $row2["cheater_code_cheat"];
         $item = $row2["item"];
         $price = $row2["price"];
 
+        $query2 = "SELECT * FROM site_info WHERE register_code_site = $register_code";
+        $result2 = mysqli_query($conn, $query2);
+        $row2 = mysqli_fetch_array($result2);
+
+        $site = $row2["site"];
+        $cheater_id = $row2["cheater_id"];
+
+        $query2 = "SELECT * FROM cheater_info WHERE cheater_code = $cheater_code";
+        $result2 = mysqli_query($conn, $query2);
+        $row2 = mysqli_fetch_array($result2);
+
+        $account = $row2["account"];
+
+
         echo"
-        <center>
-        <table border=1>
-           <tr>
-              <td width = 50><center><input type='checkbox' name='ck[]' ></center></td>
-              <td width = 100><center> $item </center></td>
-              <td width = 100><center> $price </center></td>
-              <td width = 100><center>  </center></td>
-              <td width = 150></td>
-              <td width = 250></td>
-           </tr>
-        </table>
-        </center>
+
+          <center>
+          <table border=1>
+             <tr>
+                <td width = 50><center><input type='checkbox' name='checkbox[]' ></center></td>
+                <td width = 100><center> $item </center></td>
+                <td width = 100><center> $price </center></td>
+                <td width = 100><center> $site </center></td>
+                <td width = 150><center> $cheater_id </center</td>
+                <td width = 250><center> $account </center></td>
+             </tr>
+          </table>
+          </center>
+
         ";
       }
       ?>
