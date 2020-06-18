@@ -74,8 +74,12 @@ function pw_Check(){
     비밀번호: <input type="password" name="user_password" id="password" ><br>
     비밀번호 확인: <input type="password" name="repw" id="password_Check" onkeyup="pw_Check()">
     <td id="pwchecktext" width=100></td>
-    <td><input type="button" value="회원가입" onclick="check()"></td>
+    <td align=center><input type="button" value="회원가입" onclick="check()"></td>
   </table>
+  <center>
+  <br>
+  <input type="button" value="뒤로가기" name="back" onclick="location.href='index.html'">
+  </center>
 </form>
 </tr>
 </body>

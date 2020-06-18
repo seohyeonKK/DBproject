@@ -10,7 +10,7 @@ echo "<div style=\"text-align:right\">";
 echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
 //echo"<br><br>";
 echo "&nbsp; <a href='mypage.php'><input type='button' value='마이페이지'></a>"; // 마이페이지로 이동
-echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a>";
+echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a> &nbsp;&nbsp;";
 
 echo"<br><br>";
 
@@ -66,7 +66,7 @@ echo"<br><br>";
     <br>
 
     <form name="register_info" action="insert.php" method="post">
-      <table width=580 border=0 cellpadding=2 cellspacing=1 bgcolor="#777777">
+      <table width=580 border=0 cellpadding=2 cellspacing=1 bgcolor="#777777" >
         <tr>
           <td height=20 align=center bgcolor="#999999">
           <font color=white><b>사건 정보 등록</b></font></td>
@@ -74,39 +74,41 @@ echo"<br><br>";
 
         <tr>
           <td bgcolor=white>&nbsp;
-            <table>
+            <table align=center>
               <tr>
                 <td width=160 aligh=left>등록자</td>
-                <td align=left><input type=text value="<?=$_SESSION['id']?>" name="name" size=20 maxlength=10 readonly></td>
+                <td align=left><input type=text value="<?=$_SESSION['id']?>" name="name" size=25 maxlength=10 readonly></td>
               </tr>
               <tr>
                 <td width=160 aligh=left>계좌</td>
-                <td align=left><input type=text name="account" size=30 maxlength=20 >
+                <td align=left><input type=text name="account" size=25 maxlength=20 >
               </tr>
               <tr>
                 <td width=160 aligh=left>품목</td>
-                <td align=left><input type=text name="item" size=20 maxlength=10 ></td>
+                <td align=left><input type=text name="item" size=25 maxlength=20 ></td>
               </tr>
               <tr>
                 <td width=160 aligh=left>가격</td>
-                <td align=left><input type=text name="price" size=20 maxlength=10 ></td>
+                <td align=left><input type=text name="price" size=25 maxlength=10 ></td>
               </tr>
               <tr>
                 <td width=160 aligh=left>사기당한 사이트</td>
-                <td align=left><input type=text name="site" size=45 maxlength=45></td>
+                <td align=left><input type=text name="site" size=25 maxlength=15></td>
               </tr>
               <tr>
                 <td width=160 aligh=left>사기꾼 아이디</td>
-                <td align=left><input type=text name="site_id" size=20 maxlength=10></td>
+                <td align=left><input type=text name="site_id" size=25 maxlength=15></td>
               </tr>
               <tr>
                 <td></td>
                 <td align=left>
+                <br>
                 <input type="button" value="등록" name="acc_submit" onclick="checkInput()">
                  &nbsp;
                 <input type="reset" value="리셋" name="reset">
                  &nbsp;
-                <input type="button" value="뒤로가기" name="back" onclick="history.back()">  </td>
+                <input type="button" value="뒤로가기" name="back" onclick="history.back()">
+                <br></br></td>
               </tr>
             </table>
         </tr>
