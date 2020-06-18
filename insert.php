@@ -70,4 +70,67 @@
 
 
 
+
+
 ?>
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body topmargin=0 leftmargin=0 text="#464646">
+    <center>
+    <br>
+
+    <form name="register_info" action="insert.php" method="post">
+      <table width=580 border=0 cellpadding=2 cellspacing=1 bgcolor="#777777">
+        <tr>
+          <td height=20 align=center bgcolor="#999999">
+          <font color=white><b>등록 정보 확인</b></font></td>
+        </tr>
+
+        <tr>
+          <td bgcolor=white>&nbsp;
+            <table align=center>
+              <tr>
+                <td width=160 aligh=left>등록자</td>
+                <td align=left><input type=text value="<?=$_SESSION['id']?>" name="name" size=25 maxlength=10 readonly></td>
+              </tr>
+              <tr>
+                <td width=160 aligh=left>계좌</td>
+                <td align=left><input type=text value="<?=$account?>" name="account" size=25 maxlength=20 readonly></td>
+              </tr>
+              <tr>
+                <td width=160 aligh=left>품목</td>
+                <td align=left><input type=text value="<?=$item?>"  name="item" size=25 maxlength=20 readonly></td>
+              </tr>
+              <tr>
+                <td width=160 aligh=left>가격</td>
+                <td align=left><input type=text value="<?=$price?>"  name="price" size=25 maxlength=10 readonly></td>
+              </tr>
+              <tr>
+                <td width=160 aligh=left>사기꾼 아이디</td>
+                <td align=left><input type=text value="<?=$site_id?>" name="site_id" size=25 maxlength=15 readonly></td>
+              </tr>
+              <tr>
+                <td width=160 aligh=left>사기당한 사이트</td>
+                <td align=left><input type=text value="<?=$site?>" name="site" size=25 maxlength=15 readonly></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td align=left>
+                <br>
+                <input type="button" value="메인페이지" name="main" onclick="location.href='main.php'">
+                <br></br></td>
+              </tr>
+            </table>
+        </tr>
+
+      </table>
+    </form>
+
+  </body>
+</html>

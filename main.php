@@ -10,7 +10,7 @@
   echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
   //echo"<br><br>";
   echo "&nbsp; <a href='mypage.php'><input type='button' value='마이페이지'></a>"; // 마이페이지로 이동
-  echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a>";
+  echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a> &nbsp;&nbsp;";
 
   echo"<br><br>";
   echo '<center>';

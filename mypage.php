@@ -11,6 +11,6 @@
   echo"<br>";
   echo"<br><br>";
   echo "&nbsp; <a href='main.php'><input type='button' value='메인페이지' name='back'></a>";
-  echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a>";
+  echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a> &nbsp;&nbsp;";
 
  ?>
