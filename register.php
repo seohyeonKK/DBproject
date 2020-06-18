@@ -9,8 +9,8 @@ echo"<br>";
 echo "<div style=\"text-align:right\">";
 echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
 //echo"<br><br>";
-echo "&nbsp; <a href='mypage.php'><input type='button' value='MyPage'></a>"; // 마이페이지로 이동
-echo "&nbsp; <a href='logout.php'><input type='button' value='Logout'></a>";
+echo "&nbsp; <a href='mypage.php'><input type='button' value='마이페이지'></a>"; // 마이페이지로 이동
+echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a>";
 
 echo"<br><br>";
 
@@ -104,7 +104,7 @@ echo"<br><br>";
                 <td align=left>
                 <input type="button" value="등록" name="acc_submit" onclick="checkInput()">
                  &nbsp;
-                <input type="button" value="리셋" name="rewrite">
+                <input type="reset" value="리셋" name="reset">
                  &nbsp;
                 <input type="button" value="뒤로가기" name="back" onclick="history.back()">  </td>
               </tr>

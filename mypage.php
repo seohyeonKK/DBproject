@@ -9,9 +9,8 @@
   echo '<center>';
   echo '<h1> 마이페이지 </h1>';
   echo"<br>";
-  echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
   echo"<br><br>";
-  echo "&nbsp; <a href='logout.php'><input type='button' value='Logout'></a>"
-
+  echo "&nbsp; <a href='main.php'><input type='button' value='메인페이지' name='back'></a>";
+  echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a>";
 
  ?>
