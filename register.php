@@ -92,13 +92,14 @@ echo"<br><br>";
                 <td align=left><input type=text name="price" size=25 maxlength=10 ></td>
               </tr>
               <tr>
-                <td width=160 aligh=left>사기당한 사이트</td>
-                <td align=left><input type=text name="site" size=25 maxlength=15></td>
-              </tr>
-              <tr>
                 <td width=160 aligh=left>사기꾼 아이디</td>
                 <td align=left><input type=text name="site_id" size=25 maxlength=15></td>
               </tr>
+              <tr>
+                <td width=160 aligh=left>사기당한 사이트</td>
+                <td align=left><input type=text name="site" size=25 maxlength=15></td>
+              </tr>
+
               <tr>
                 <td></td>
                 <td align=left>

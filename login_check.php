@@ -22,14 +22,14 @@ if ($id =$row['member_id'] && $pwd == $row['member_pw']){
   echo "<script>window.alert('로그인 완료');</script>";
   //echo"<center><br><br><br>";
   //echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
-  echo "&nbsp; <a href='logout.php'><input type='button' value='Logout'></a>";
+  //echo "&nbsp; <a href='logout.php'><input type='button' value='Logout'></a>";
   echo "<script>location.href='main.php';</script>"; // 로그인 시 메인페이지로 이동하도록
 
   //
 }
 else{
   echo "<script>window.alert('로그인 실패'); </script>";
-  echo "<script>location.href='login.php';</script>";
+  echo "<script>location.href='index.html';</script>";
   //echo "<script>location.href='login.php';</script>";
 }
  ?>

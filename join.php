@@ -25,7 +25,7 @@
     mysqli_query($conn, $query2);
     //mysqli_query($conn, $query3);
     echo "<script> alert('회원가입 성공! 환영합니다 :D'); </script>";
-    //location.href='./main.php'</script>";
+    echo "<script>location.href='./index.html'</script>";
   }
   else
   {
