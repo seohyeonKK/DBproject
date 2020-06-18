@@ -47,10 +47,8 @@
             <th width =250>&nbsp;계좌 번호&nbsp;</th>
          </tr>
       </table>
-
+      <form name='delete_check_form' action='delete_check.php' method='POST'>
       ";
-
-
 
 
       while ($row = mysqli_fetch_array($result))
@@ -80,11 +78,10 @@
 
 
         echo"
-
           <center>
           <table border=1>
              <tr>
-                <td width = 50><center><input type='checkbox' name='checkbox[]' ></center></td>
+                <td width = 50><center><input type='checkbox' name='checkbox[]' value='$item' ></center></td>
                 <td width = 100><center> $item </center></td>
                 <td width = 100><center> $price </center></td>
                 <td width = 100><center> $site </center></td>
@@ -96,13 +93,12 @@
 
         ";
       }
+
+      echo "<br><br><input type='submit' value='삭제'></a>";
+      echo "<br><br><a href='main.php'><input type='button' value='메인페이지'></a></form>";
+      mysqli_close($conn)
+
       ?>
   </body>
-
-  <?
-   echo "<br><br><a href='delete_check.php'><input type='button' value='삭제'></a>";
-   echo "<br><br><a href='main.php'><input type='button' value='메인페이지'></a>";
-   mysqli_close($conn);
-  ?>
 
 </html>
