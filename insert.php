@@ -65,7 +65,7 @@
 
 
   //site_info 테이블에 대한 값을 삽입 (사기당한 사이트 정보)
-  $query = "INSERT INTO site_info (cheater_id, site, cheater_code_site) VALUES ('$site_id', '$site', $cheater_code)";
+  $query = "INSERT INTO site_info (cheater_id, site, cheater_code_site, register_code_site) VALUES ('$site_id', '$site', $cheater_code, $register_code)";
   mysqli_query($conn, $query);
 
 

@@ -2,7 +2,6 @@
 session_start();
 include './dbconn.php';
 
-  $account = $_POST['account'];
 
   echo"<br>";
   echo "<div style=\"text-align:right\">";
@@ -82,7 +81,6 @@ include './dbconn.php';
  $query = "SELECT * FROM cheater_info WHERE account='$account'";
  $result = mysqli_query($conn, $query);
  $row = mysqli_fetch_array($result);
- $cheater_code = $row["cheater_code"];
 
  $string = "계좌를 입력해주세요.";
 

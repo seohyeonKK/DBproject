@@ -18,6 +18,8 @@
 //   }
 
 function check(){
+  var password = document.getElementById("password").value;
+  var passwordCheck = document.getElementById("password_Check").value;
   if(!document.join_form.user_id.value)
   {
     alert("아이디를 입력하세요.");
@@ -34,6 +36,11 @@ function check(){
   {
     alert("비밀번호를 확인하세요.");
     document.join_form.user_password.focus();
+    return;
+  }
+  else if(password != passwordCheck){
+    alert("비밀번호가 같지 않습니다.");
+    document.join_form.repw.focus();
     return;
   }
   document.join_form.submit();
