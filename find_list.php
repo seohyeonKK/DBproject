@@ -68,7 +68,7 @@
   ";
   echo "<br><h3> 상세 이력 </h3>";
   $result = mysqli_query($conn, $query);
-  while (  $row = mysqli_fetch_array($result))
+  while ($row = mysqli_fetch_array($result))
   {
     $item = $row["item"];
     $price = $row["price"];

@@ -81,7 +81,7 @@
           <center>
           <table border=1>
              <tr>
-                <td width = 50><center><input type='checkbox' name='checkbox[]' value='$item' ></center></td>
+                <td width = 50><center><input type='checkbox' name='checkbox[]' value='$register_code'></center></td>
                 <td width = 100><center> $item </center></td>
                 <td width = 100><center> $price </center></td>
                 <td width = 100><center> $site </center></td>
