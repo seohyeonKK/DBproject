@@ -21,19 +21,40 @@
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
     $cheater_code = $row["cheater_code_cheat"];
+    $price = $row["price"];
 
     //cheat_info 테이블의 튜플을 삭제합니다.
     $query = "DELETE FROM cheat_info WHERE register_code=$register_code";
     mysqli_query($conn, $query);
 
     //cheater_info 테이블의 튜플을 삭제합니다.
-    $query = "DELETE FROM cheater_info WHERE cheater_code=$cheater_code";
-    mysqli_query($conn, $query);
+    //총사기횟수가 1이면 해당 사기꾼의 정보를 삭제하고,
+    //총사기횟수가 2이상이면 총사기횟수와 총사기금액을 갱신해준다.
+
+    //총사기횟수(cheat_count)를 받아온다.
+    $query = "SELECT * FROM cheater_info WHERE cheater_code=$cheater_code";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+    $cheat_count = $row["cheat_count"];
+
+    if($cheat_count > 1) //총사기횟수가 2이상이면 총사기횟수와 사기금액을 갱신해준다.
+    {
+      $query = "UPDATE cheater_info SET cheat_count = cheat_count - 1 WHERE cheater_code = $cheater_code";
+      mysqli_query($conn, $query);
+      $query = "UPDATE cheater_info SET total_price = total_price - $price WHERE cheater_code = $cheater_code";
+      mysqli_query($conn, $query);
+    }
+    else //총사기횟수가 1 이면 사기꾼의 정보를 삭제한다.
+    {
+      $query = "DELETE FROM cheater_info WHERE cheater_code=$cheater_code";
+      mysqli_query($conn, $query);
+    }
   }
 
 
-  mysqli_close($conn);
-  echo "<script> window.history.back();</script>";
 
+  mysqli_close($conn);
+  echo "<script> alert('선택한 정보가 삭제되었습니다.');</script>";
+  echo "<script> location.href='./delete.php';</script>";
 
 ?>

@@ -15,8 +15,8 @@
       echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a> &nbsp;&nbsp;";
 
       echo"<br><br>";
-      echo '<center>';
-      echo '<h1> 삭제 페이지 </h1>';
+      echo "<center>";
+      echo "<h1> 삭제 페이지 </h1>";
 ?>
 
   </head>
