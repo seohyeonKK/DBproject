@@ -16,7 +16,6 @@ echo"<br><br>";
 
  ?>
 
-<!DOCTYPE html>
 <html>
   <head>
     <title>사기 사건 등록</title>

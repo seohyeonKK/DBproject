@@ -16,8 +16,11 @@ $query = "SELECT * FROM member_info WHERE member_id='$id' AND member_pw ='$pwd'"
 $result = mysqli_query($conn,$query);
 $row = mysqli_fetch_array($result);
 
-if ($id =$row['member_id'] && $pwd == $row['member_pw']){
+if ($id =$row['member_id'] && $pwd == $row['member_pw'])
+{
   $_SESSION['id'] = $row['member_id'];
+  $_SESSION['pwd'] = $row['member_pw'];
+  $_SESSION['name'] = $row['member_name'];
 
   echo "<script>window.alert('로그인 완료');</script>";
   //echo"<center><br><br><br>";
