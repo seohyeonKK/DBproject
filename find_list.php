@@ -66,7 +66,18 @@
     ON c.cheater_code_cheat=s.cheater_code_site AND c.register_code=s.register_code_site
     WHERE s.cheater_code_site=$cheater_code
   ";
-  echo "<br><h3> 상세 이력 </h3>";
+  echo "
+  <center>
+    <br><h3> 상세 이력 </h3>
+    <table border='1'>
+       <tr>
+          <th width =150>&nbsp;품목&nbsp;</th>
+          <th width =100>&nbsp;가격&nbsp;</th>
+          <th width =150>&nbsp;사이트 아이디&nbsp;</th>
+          <th width =100>&nbsp;사이트&nbsp;</th>
+       </tr>
+    </table>
+  ";
   $result = mysqli_query($conn, $query);
   while ($row = mysqli_fetch_array($result))
   {
@@ -77,23 +88,15 @@
 
     echo "
     <center>
-    <table border='1'>
+    <table border=1>
        <tr>
-          <th width =150>&nbsp;품목&nbsp;</th>
-          <th width =100>&nbsp;가격&nbsp;</th>
-          <th width =150>&nbsp;사이트 아이디&nbsp;</th>
-          <th width =100>&nbsp;사이트&nbsp;</th>
-       </tr>
-
-       <tr>
-          <td><center> $item </center></td>
-          <td><center> $price </center></td>
-          <td><center> $cheater_id </center></td>
-          <td><center> $site </center></td>
+          <td width =150><center> $item </center></td>
+          <td width =100><center> $price </center></td>
+          <td width =150><center> $cheater_id </center></td>
+          <td width =100><center> $site </center></td>
        </tr>
     </table>
     </center>
-    <br>
      ";
   }
   echo "<br><a href='main.php'><input type='button' value='메인페이지'></a>";
