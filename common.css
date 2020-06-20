@@ -37,6 +37,13 @@ body{
   cursive;
 }
 
+#page_sub_title{
+  font : italic;
+  font-size : 25px;
+  color : RGB(105,105,105);
+  cursive;
+}
+
 #user_id_pwd_label{
   font : italic;
   padding : 10px;
@@ -64,9 +71,8 @@ body{
 #acc_information{
   font-family: 'Nanum Brush Script',cursive;
   color: RGB(0,0,0);
-  padding : .3em .8em;
-  margin : 8px 20px;
   font-size : 25px;
+  padding: 10px;
 }
 
 #table_title{
@@ -93,7 +99,7 @@ body{
   transition: 0.3s;
 }
 #btn_login:hover {
-  background: skyblue;
+  background: Lightblue;
   color: white;
   opacity: 1;
 }
@@ -119,7 +125,6 @@ body{
   display: inline-block;
 }
 
-
 #btn_mainpage{
   font-family:'Nanum Brush Script',cursive;
   font-size: 30px;
@@ -130,11 +135,25 @@ body{
   transition: 0.3s;
 }
 #btn_mainpage:hover {
-  background: skyblue;
+  background: Lightblue;
   color: white;
   opacity: 1;
 }
 
+#btn_mypage{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 18px;
+  border : 2px;
+  width : 80px;
+  height : 30px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_mypage:hover {
+  background: black;
+  color: white;
+  opacity: 1;
+}
 
 #btn_mypage_logout{
   font-family:'Nanum Brush Script',cursive;
@@ -147,6 +166,21 @@ body{
 }
 #btn_mypage_logout:hover {
   background: tomato;
+  color: white;
+  opacity: 1;
+}
+
+#btn_check{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 18px;
+  border : 2px;
+  width : 100px;
+  height : 30px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_check:hover {
+  background: black;
   color: white;
   opacity: 1;
 }
@@ -164,4 +198,85 @@ body{
   background: black;
   color: white;
   opacity: 1;
+}
+
+#btn_delete{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 18px;
+  border : 2px;
+  width : 270px;
+  height : 30px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_delete:hover {
+  background: tomato;
+  color: white;
+  opacity: 1;
+}
+
+#btn_name_update{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 18px;
+  border : 2px;
+  width : 133px;
+  height : 30px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_name_update:hover {
+  background: Salmon;
+  color: white;
+  opacity: 1;
+}
+
+#btn_pwd_update{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 18px;
+  border : 2px;
+  width : 133px;
+  height : 30px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_pwd_update:hover {
+  background: Lightblue;
+  color: white;
+  opacity: 1;
+}
+
+#delete_table{
+  font-size : 20px;
+  border-collapse: collapse;
+  padding: 10px;
+}
+#td_chk{
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+#td_item{
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+#td_cheate{
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+#td_account{
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+
+#info_table{
+  font-size : 25px;
+  border-collapse: collapse;
+  padding: 2px;
+}
+#td_name_id{
+  padding: 2px;
+  text-align : left;
+}
+#td_info{
+  padding: 2px;
+  text-align : center;
 }

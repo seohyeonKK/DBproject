@@ -66,10 +66,10 @@
 
         <tr>
           <td bgcolor=white>&nbsp;
-            <table align=center>
+            <table id ="acc_table" align=center>
               <tr>
                 <td id = "acc_information">등록자</td>
-                <td id = "acc_information"><input type=text value="<?=$_SESSION['id']?>" name="name" size=25 maxlength=10 readonly></td>
+                <td id = "acc_input"><input type=text value="<?=$_SESSION['id']?>" name="name" size=25 maxlength=10 readonly></td>
               </tr>
               <tr>
                 <td id = "acc_information">계좌</td>
@@ -95,7 +95,7 @@
             <center><br>
             <input type="button" id="btn_ok" value="등록" name="acc_submit" onclick="checkInput()">
              <br><br>
-            <input type="reset"  id="btn_ok"value="리셋" name="reset">
+            <input type="reset"  id="btn_delete"value="리셋" name="reset">
              <br><br>
             <input type="button" id="btn_ok" value="뒤로가기" name="back" onclick="history.back()">
             <br></br></center>

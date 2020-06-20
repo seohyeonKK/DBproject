@@ -7,17 +7,15 @@
 
       $id = $_POST['user_id'];
       $pwd = $_POST['user_password'];
+    ?>
 
-?>
     <link rel="stylesheet" href="common.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
-
-
   </head>
 
   <body>
-    <br><center>
-    <h2> '<?=$_SESSION['id']?>' 회원이 등록한 정보 조회 </h2>
+    <center>
+    <h2 id='page_title'> '<?=$_SESSION['id']?>' 회원이 등록한 정보 조회 </h2>
     <br>
     <?
     // id를 통해 memeber의 고유번호 member_num을 받아옵니다.
@@ -32,14 +30,14 @@
     $query = "SELECT * FROM victim_info WHERE member_num_victim = $member_num";
     $result = mysqli_query($conn, $query);
       echo "
-      <table border='1'>
+      <table id='delete_table'>
          <tr>
-            <th width=50/>
-            <th width =100>&nbsp;품목&nbsp;</th>
-            <th width =100>&nbsp;가격&nbsp;</th>
-            <th width =100>&nbsp;사이트&nbsp;</th>
-            <th width =150>&nbsp;사이트 아이디 &nbsp;</th>
-            <th width =250>&nbsp;계좌 번호&nbsp;</th>
+            <th id = 'td_chk' width=50></th>
+            <th id = 'td_item' width =100>&nbsp;품목&nbsp;</th>
+            <th id = 'td_item' width =100>&nbsp;가격&nbsp;</th>
+            <th id = 'td_item' width =100>&nbsp;사이트&nbsp;</th>
+            <th id = 'td_cheate' width =150>&nbsp;사이트 아이디 &nbsp;</th>
+            <th id = 'td_account' width =250>&nbsp;계좌 번호&nbsp;</th>
          </tr>
       </table>
       <form name='delete_check_form' action='delete_check.php' method='POST'>
@@ -74,23 +72,25 @@
 
         echo"
           <center>
-          <table border=1>
-             <tr>
-                <td width = 50><center><input type='checkbox' name='checkbox[]' value='$register_code'></center></td>
-                <td width = 100><center> $item </center></td>
-                <td width = 100><center> $price </center></td>
-                <td width = 100><center> $site </center></td>
-                <td width = 150><center> $cheater_id </center</td>
-                <td width = 250><center> $account </center></td>
-             </tr>
-          </table>
+
+            <table id ='delete_table'>
+               <tr>
+                  <td id ='td_chk' width = 50><center><input type='checkbox' name='checkbox[]' value='$register_code'></center></td>
+                  <td id = 'td_item' width = 100><center> $item </center></td>
+                  <td id = 'td_item' width = 100><center> $price </center></td>
+                  <td id = 'td_item' width = 100><center> $site </center></td>
+                  <td id = 'td_cheate' width = 150><center> $cheater_id </center</td>
+                  <td id = 'td_account' width = 250><center> $account </center></td>
+               </tr>
+            </table>
+
           </center>
 
         ";
       }
 
-      echo "<br><br><input type='submit' value='삭제'></a>";
-      echo "<br><br><a href='main.php'><input type='button' value='메인페이지'></a></form>";
+      echo "<br><br><input type='submit' id='btn_delete' value='삭제'></a>";
+      echo "<br><br><br><a href='main.php'><input type='button' id='btn_ok' value='메인페이지'></a></form>";
       mysqli_close($conn)
 
       ?>

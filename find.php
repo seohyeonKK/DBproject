@@ -101,7 +101,6 @@
    {
      $string = "등록된 계좌가 없습니다.";
    }
-   //cho"<td> <p> 등록된 계좌가 없습니다.</p></td>";
    echo $string;
  }
  mysqli_close($conn);
