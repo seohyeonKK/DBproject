@@ -3,25 +3,20 @@
     <?
       session_start();
       include './dbconn.php';
+      include './user_information.php';
 
       $id = $_POST['user_id'];
       $pwd = $_POST['user_password'];
 
-      echo"<br>";
-      echo "<div style=\"text-align:right\">";
-      echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
-      //echo"<br><br>";
-      echo "&nbsp; <a href='mypage.php'><input type='button' value='마이페이지'></a>"; // 마이페이지로 이동
-      echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a> &nbsp;&nbsp;";
-
-      echo"<br><br>";
-      echo "<center>";
-      echo "<h1> 삭제 페이지 </h1>";
 ?>
+    <link rel="stylesheet" href="common.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
+
 
   </head>
 
   <body>
+    <br><center>
     <h2> '<?=$_SESSION['id']?>' 회원이 등록한 정보 조회 </h2>
     <br>
     <?

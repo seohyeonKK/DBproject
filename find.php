@@ -1,17 +1,7 @@
 <?php
-session_start();
-include './dbconn.php';
-
-
-  echo"<br>";
-  echo "<div style=\"text-align:right\">";
-  echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
-  //echo"<br><br>";
-  echo "&nbsp; <a href='mypage.php'><input type='button' value='마이페이지'></a>"; // 마이페이지로 이동
-  echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a> &nbsp;&nbsp;";
-
-  echo"<br><br>";
-
+  session_start();
+  include './dbconn.php';
+  include './user_information.php';
 
  ?>
 
@@ -20,6 +10,9 @@ include './dbconn.php';
  <html>
    <head>
      <title>사기 이력 조회</title>
+     <link rel="stylesheet" href="common.css" type="text/css">
+     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
+
 
      <script>
       function searchAccount(){
@@ -42,24 +35,25 @@ include './dbconn.php';
      <form name="find_form" action="find.php" method="post">
        <table width=580 border=0 cellpadding=2 cellspacing=1 bgcolor="#777777" >
          <tr>
-           <td height=20 align=center bgcolor="#999999">
-             <font color=white><b>사기 이력 조회</b></font>
+           <td id = "table_title">
+            <b>사기 이력 조회</b>
            </td>
          </tr>
          <tr>
            <td bgcolor=white >&nbsp;
             <table align=center>
               <tr>
-                <td width=160 aligh=left>조회할 계좌</td>
-                <td align=left><input type=text name="account" size=25 maxlength=20 ></td>
+                <td id = "acc_information">조회할 계좌</td>
+                <td id = "acc_information"><input type=text name="account" size=25 maxlength=20 ></td>
               </tr>
             </table>
             <table align=center>
               <tr>
                 <td>
                   <br><center>
-                    <input type="button" value="검색" name="search_submit" onclick="searchAccount()"> &nbsp;&nbsp;
-                    <input type="button" value="메인페이지" name="back" onclick="location.href='main.php'">
+                    <input type="button" id="btn_ok" value="검색" name="search_submit" onclick="searchAccount()"> &nbsp;&nbsp;
+                    <br><br>
+                    <input type="button" id="btn_ok" value="메인페이지" name="back" onclick="location.href='main.php'">
                   </center><br>
                 </td>
               </tr>

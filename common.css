@@ -1,0 +1,167 @@
+/* # id 선택자
+. clsss 선택자 */
+body{
+  background-color : RGB(255,255,255);
+  font-family: 'Nanum Brush Script',cursive;
+}
+
+
+#loginer
+{
+  padding: 20px;
+  margin-bottom: 20px;
+  /* border: 1px solid #bcbcbc; */
+  text-align: center;
+}
+
+#form
+{
+  font-size: 1.3em;
+  width: 500px;
+  display: inline-block;
+}
+
+#project_title{
+  font : italic;
+  font-size : 45px;
+  font-weight : bold;
+  color : RGB(0,75,105);
+  cursive;
+}
+
+#page_title{
+  font : italic;
+  font-size : 50px;
+  font-weight : bold;
+  color : RGB(0,0,0);
+  cursive;
+}
+
+#user_id_pwd_label{
+  font : italic;
+  padding : 10px;
+  font-size : 18px;
+  font-weight : bold;
+  color : RGB(0,0,0);
+  cursive;
+}
+
+#login_status{
+  font : italic;
+  font-size : 25px;
+  font-weight : bold;
+  color : RGB(0,51,102);
+  cursive;
+}
+
+#user_text{
+  color: RGB(102,102,102);
+  padding : .3em .8em;
+  margin : 8px 20px;
+  font-size : 12px;
+}
+
+#acc_information{
+  font-family: 'Nanum Brush Script',cursive;
+  color: RGB(0,0,0);
+  padding : .3em .8em;
+  margin : 8px 20px;
+  font-size : 25px;
+}
+
+#table_title{
+  height : 40;
+  color : RGB(255,255,255);
+  background-color=RGB(200,200,200);
+  font-size:30px;
+  text-align : center;
+}
+
+::placeholder{
+  font-size : 1.3em;
+  font-family: 'Nanum Brush Script',cursive;
+}
+
+#btn_login{
+  font-family: 'Nanum Brush Script',cursive;
+  color : black;
+  font-size : 20px;
+  border : 0px;
+  width : 60px;
+  height : 60px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_login:hover {
+  background: skyblue;
+  color: white;
+  opacity: 1;
+}
+
+#btn_join_introduce{
+  font-family: 'Nanum Brush Script',cursive;
+  font-size : 16px;
+  width : 180px;
+  border : 0px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_join_introduce:hover {
+  background: darkgray;
+  color: white;
+  opacity: 1;
+}
+
+#introduce_page{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 25px;
+  width: 1000px;
+  display: inline-block;
+}
+
+
+#btn_mainpage{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 30px;
+  border : 0px;
+  width : 150px;
+  height : 50px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_mainpage:hover {
+  background: skyblue;
+  color: white;
+  opacity: 1;
+}
+
+
+#btn_mypage_logout{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 18px;
+  border : 2px;
+  width : 80px;
+  height : 30px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_mypage_logout:hover {
+  background: tomato;
+  color: white;
+  opacity: 1;
+}
+
+#btn_ok{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 18px;
+  border : 2px;
+  width : 270px;
+  height : 30px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_ok:hover {
+  background: black;
+  color: white;
+  opacity: 1;
+}

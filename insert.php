@@ -1,24 +1,15 @@
 <?
-
   session_start();
   include './dbconn.php';
-  //
-  // $id = $_POST['user_id'];
-  // $pwd = $_POST['user_password'];
+  include './user_information.php';
+
+
   $account = $_POST['account'];
   $item = $_POST['item'];
   $price = $_POST['price'];
   $site = $_POST['site'];
   $site_id = $_POST['site_id'];
 
-  echo"<br>";
-  echo "<div style=\"text-align:right\">";
-  echo $_SESSION['id']."(".$_SESSION['id'].")님이 로그인 하였습니다.";
-  //echo"<br><br>";
-  echo "&nbsp; <a href='mypage.php'><input type='button' value='MyPage'></a>"; // 마이페이지로 이동
-  echo "&nbsp; <a href='logout.php'><input type='button' value='Logout'></a>";
-
-  echo"<br><br>";
 
   $query = "SELECT * FROM cheater_info WHERE account='$account'";
   $result = mysqli_query($conn, $query);
@@ -69,64 +60,60 @@
   mysqli_query($conn, $query);
 
 
-
-
-
 ?>
 
 
+
 <!DOCTYPE html>
-<html >
+<html>
   <head>
-    <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="common.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
   </head>
+
   <body topmargin=0 leftmargin=0 text="#464646">
     <center>
     <br>
-
     <form name="register_info" action="insert.php" method="post">
       <table width=580 border=0 cellpadding=2 cellspacing=1 bgcolor="#777777">
         <tr>
-          <td height=20 align=center bgcolor="#999999">
-          <font color=white><b>등록 정보 확인</b></font></td>
+          <td id = "table_title">
+            <b>등록 정보 확인</b>
+          </td>
         </tr>
 
         <tr>
           <td bgcolor=white>&nbsp;
             <table align=center>
-              <tr>
-                <td width=160 aligh=left>등록자</td>
-                <td align=left><input type=text value="<?=$_SESSION['id']?>" name="name" size=25 maxlength=10 readonly></td>
+              <tr >
+                <td id = "acc_information">등록자</td>
+                <td id = "acc_information"><?=$_SESSION['id']?></td>
               </tr>
               <tr>
-                <td width=160 aligh=left>계좌</td>
-                <td align=left><input type=text value="<?=$account?>" name="account" size=25 maxlength=20 readonly></td>
+                <td id = "acc_information">계좌</td>
+                <td id = "acc_information"><?=$account?></td>
               </tr>
               <tr>
-                <td width=160 aligh=left>품목</td>
-                <td align=left><input type=text value="<?=$item?>"  name="item" size=25 maxlength=20 readonly></td>
+                <td id = "acc_information" >품목</td>
+                <td id = "acc_information"><?=$item?></td>
               </tr>
               <tr>
-                <td width=160 aligh=left>가격</td>
-                <td align=left><input type=text value="<?=$price?>"  name="price" size=25 maxlength=10 readonly></td>
+                <td id = "acc_information" >가격</td>
+                <td id = "acc_information"><?=$price?></td>
               </tr>
               <tr>
-                <td width=160 aligh=left>사기꾼 아이디</td>
-                <td align=left><input type=text value="<?=$site_id?>" name="site_id" size=25 maxlength=15 readonly></td>
+                <td id = "acc_information">사기꾼 아이디</td>
+                <td id = "acc_information"><?=$site_id?></td>
               </tr>
               <tr>
-                <td width=160 aligh=left>사기당한 사이트</td>
-                <td align=left><input type=text value="<?=$site?>" name="site" size=25 maxlength=15 readonly></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td align=left>
-                <br>
-                <input type="button" value="메인페이지" name="main" onclick="location.href='main.php'">
-                <br></br></td>
+                <td id = "acc_information">사기당한 사이트</td>
+                <td id = "acc_information"><?=$site?></td>
               </tr>
             </table>
+          <center>
+            <br><input type="button" id="btn_ok" value="확인" name="main" onclick="location.href='main.php'"><br><br>
+          </cemter>
         </tr>
 
       </table>
