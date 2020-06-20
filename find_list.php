@@ -24,36 +24,37 @@
     else $arrest='X';
 
   ?>
+  <link rel="stylesheet" href="common.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
+
 </head>
 
 <body align=center>
   <br>
-  <h2> 사기꾼 세부 이력 조회 </h2>
-  <br>
+  <h2 id='page_title'> '<?=$account?>' 계좌의 사기 세부 이력 </h2>
 
 <!-- 사기꾼의 총 이력을 합산하여 나타내줍니다.-->
-<center>
-<table border="1">
-   <tr>
-      <th width =200>&nbsp;계좌번호&nbsp;</th>
-      <th width =100>&nbsp;총사기금액&nbsp;</th>
-      <th width =100>&nbsp;총사기횟수&nbsp;</th>
-      <th width =100>&nbsp;검거여부&nbsp;</th>
-   </tr>
-   <tr>
-      <td><center><? echo $account; ?></center></td>
-      <td><center><? echo $total_price; ?></center></td>
-      <td><center><? echo $cheat_count; ?></center></td>
-      <td><center><? echo $arrest; ?></center></td>
-   </tr>
-</table>
-</center>
+  <center>
+    <table id='delete_table' border=1>
+       <tr>
+          <th id = 'td_account' width =200>&nbsp;계좌번호&nbsp;</th>
+          <th id = 'td_item' width =100>&nbsp;총사기금액&nbsp;</th>
+          <th id = 'td_item' width =100>&nbsp;총사기횟수&nbsp;</th>
+          <th id = 'td_item' width =100>&nbsp;검거여부&nbsp;</th>
+       </tr>
+       <tr>
+          <td id = 'td_account'><center><? echo $account; ?></center></td>
+          <td id = 'td_item'><center><? echo $total_price; ?></center></td>
+          <td id = 'td_item'><center><? echo $cheat_count; ?></center></td>
+          <td id = 'td_item'><center><? echo $arrest; ?></center></td>
+       </tr>
+    </table>
+  </center>
 </body>
 </html>
 
 
 <?
-
   $query =
   "SELECT c.cheater_code_cheat,
     c.register_code,
@@ -68,13 +69,13 @@
   ";
   echo "
   <center>
-    <br><h3> 상세 이력 </h3>
-    <table border='1'>
+    <br><h3 id='page_sub_title'> 상세 이력 </h3>
+    <table>
        <tr>
-          <th width =150>&nbsp;품목&nbsp;</th>
-          <th width =100>&nbsp;가격&nbsp;</th>
-          <th width =150>&nbsp;사이트 아이디&nbsp;</th>
-          <th width =100>&nbsp;사이트&nbsp;</th>
+          <th id = 'td_cheate' width =150>&nbsp;품목&nbsp;</th>
+          <th id = 'td_item' width =100>&nbsp;가격&nbsp;</th>
+          <th id = 'td_cheate' width =150>&nbsp;사이트 아이디&nbsp;</th>
+          <th id = 'td_item' width =100>&nbsp;사이트&nbsp;</th>
        </tr>
     </table>
   ";
@@ -88,18 +89,19 @@
 
     echo "
     <center>
-    <table border=1>
+    <table >
        <tr>
-          <td width =150><center> $item </center></td>
-          <td width =100><center> $price </center></td>
-          <td width =150><center> $cheater_id </center></td>
-          <td width =100><center> $site </center></td>
+          <td id = 'td_cheate' width =150><center> $item </center></td>
+          <td id = 'td_item' width =100><center> $price </center></td>
+          <td id = 'td_cheate' width =150><center> $cheater_id </center></td>
+          <td id = 'td_item' width =100><center> $site </center></td>
        </tr>
     </table>
     </center>
      ";
   }
-  echo "<br><a href='main.php'><input type='button' value='메인페이지'></a>";
-  echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='find.php'><input type='button' value='재조회'></a>";
+
+  echo "<br><br><br><a href='find.php'><input id='btn_delete' type='button' value='재조회'></a><br><br>";
+  echo "<br><a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a>";
   mysqli_close($conn);
 ?>

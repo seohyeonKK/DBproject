@@ -1,18 +1,7 @@
 <?php
   session_start();
   include './dbconn.php';
-
-  echo"<br>";
-  echo "<div style=\"text-align:right\">";
-  echo $_SESSION['id']."(".$_SESSION['name'].")님이 로그인 하였습니다.";
-  //echo"<br><br>";
-  echo "&nbsp; <a href='mypage.php'><input type='button' value='마이페이지'></a>"; // 마이페이지로 이동
-  echo "&nbsp; <a href='logout.php'><input type='button' value='로그아웃'></a> &nbsp;&nbsp;";
-
-  echo"<br><br>";
-  echo '<center>';
-  echo '<h1> 메인페이지 </h1>';
-  echo"<br><br><br>";
+  include './user_information.php';
 
  ?>
 
@@ -20,12 +9,21 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="common.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
+
+    <center>
+      <h1 id="page_title"> 메인페이지 </h1>
+      <br>
+    </center>
   </head>
   <body>
-    <input type='button' value='등록' onClick="location.href='register.php'";>
-    &nbsp; &nbsp;
-    <input type='button' value='조회' onClick="location.href='find.php'";>
-    &nbsp; &nbsp;
-    <input type='button' value='삭제' onClick="location.href='delete.php'";>
+    <center>
+      <input type='button' value='등록' id="btn_mainpage" onClick="location.href='register.php'";>
+      &nbsp; &nbsp;&nbsp; &nbsp;
+      <input type='button' value='조회' id="btn_mainpage" onClick="location.href='find.php'";>
+      &nbsp; &nbsp;&nbsp; &nbsp;
+      <input type='button' value='삭제' id="btn_mainpage" onClick="location.href='delete.php'";>
+    </center>
   </body>
 </html>

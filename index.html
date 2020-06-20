@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="common.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
+
   <title>Judgement</title>
   <script>
-
-
     function checkInputForm()
     {
       // Id 값을 입력받았는지 확인합니다.
@@ -24,44 +25,39 @@
         document.login_input_form.user_password.focus();
         return;
       }
-
       document.login_input_form.submit();
     }
-
-    // function checkInputForm()
-    // {
-    //   // Id 값을 입력받았는지 확인합니다.
-    //   if(!document.login_input_form.user_id.value)
-    //   {
-    //     alert('Please enter your Id');
-    //     document.login_input_form.user_id.focus();
-    //     return;
-    //   }
-    //   // Password 값을 입력받았는지 확인합니다.
-    //   if(!document.login_input_form.user_password.value)
-    //   {
-    //     alert('Please enter your Password');
-    //     document.login_input_form.user_password.focus();
-    //     return;
-    //   }
-    //
-    //   document.login_input_form.submit();
-    // }
   </script>
-
 </head>
+
 <body>
   <center>
-  <h1> 홈페이지 이름을 입력해주세요. </h1>
-
-  <form name = "login_input_form" action = "login_check.php" method = "post">
-    <label> 아이디: </label><input type="text" name = "user_id"><br>
-    <label> 비밀번호 : </label><input type="password" name ="user_password">
-    <br><br>
-    <input type="submit" value="로그인">
-    <input type="button" value="회원가입" onclick="location.href='join_form.php'";>
-
-  </form>
+  <br><br><h1 id="project_title"> 심 판 </h1> <br>
+  <div id="loginer">
+    <div id="form">
+      <form name = "login_input_form" action = "login_check.php" method = "post">
+        <fieldset>
+          <legend> LOGIN ! </legend>
+            <table align=center>
+                <tr>
+                  <td> <label id="user_id_pwd_label"> 아이디</label></td>
+                  <td><input type="text" name = "user_id" id ="user_text" placeholder="아이디를 입력해주세요."></td>
+                  <td rowspan="2"><input type="submit" value="로그인" id="btn_login"> </td>
+                </tr>
+                <tr>
+                  <td><label id="user_id_pwd_label"> 비밀번호  </label></td>
+                  <td><input type="password" name ="user_password" id ="user_text" placeholder="비밀번호를 입력해주세요."></td>
+                </tr>
+            </table>
+          <br>
+          <input type="button" value="회원가입" id="btn_join_introduce" onclick="location.href='join_form.php'";>
+          <br><br>
+          <input type="button" value="페이지 안내서" id="btn_join_introduce" onclick="location.href='introduce.php'";>
+          <br><br>
+        </fieldset>
+      </form>
+    </div>
+  </div>
 </center>
 </body>
 </html>

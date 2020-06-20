@@ -9,6 +9,8 @@
     //$name = $_POST['user_name'];
 
   ?>
+  <link rel="stylesheet" href="common.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
   <script>
 
@@ -58,15 +60,16 @@
 </head>
 
 <body align=center>
+  <br>
   <form name = "change_user_password" action="change_password.php" method="post">
-    비밀번호: <input type="password" name="user_password" id="new_password" maxlength="15"><br>
-    비밀번호 확인: <input type="password" name="repw" id="password_Check" onkeyup="pw_Check()" maxlength="15">
+    <label>비밀번호: </label><input type="password" name="user_password" id="new_password" maxlength="15"><br>
+    <br>
+    <label>비밀번호 확인: </label><input type="password" name="repw" id="password_Check" onkeyup="pw_Check()" maxlength="15">
     <br><br>
     <table border="0" align="center" width=150>
       <td value= " " id="pwchecktext" width=150 height=30></td>
     </table>
-    <br><br>
-  <input type="button" value="변경" onClick="checkInput()"></td>
+  <input type="button" id="btn_ok" value="변경" onClick="checkInput()"></td>
   </table>
 </body>
 </html>
