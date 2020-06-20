@@ -4,19 +4,6 @@
 <head>
 <script>
 
-
-// function checkform() {
-//   if (!document.login_form.user_id.value) {
-//     alert('아이디가 입력되지 않았습니다. ');
-//     document.login_form.user_id.focus();
-//     return;
-//   }
-//   else if (!document.login_form.user_password.value) {
-//     alert('비밀번호가 입력되지 않았습니다. ');
-//     document.login_form.user_password.focus();
-//     return;
-//   }
-
 function check(){
   var password = document.getElementById("password").value;
   var passwordCheck = document.getElementById("password_Check").value;
@@ -24,6 +11,12 @@ function check(){
   {
     alert("아이디를 입력하세요.");
     document.join_form.user_id.focus();
+    return;
+  }
+  else if(!document.join_form.user_name.value)
+  {
+    alert("이름을 입력하세요.");
+    document.join_form.user_name.focus();
     return;
   }
   else if(!document.join_form.user_password.value)
@@ -76,10 +69,11 @@ function pw_Check(){
 <form name = "join_form" action = "./join.php" method = "POST">
   <table border="1" align="center" width=600>
     <tr><td height="130" align="center">
-    아이디: <input type="text" name="user_id" id="id">
+    아이디: <input type="text" name="user_id" id="id" maxlength="15">
     <input type="button" name="checkid" value="중복확인" onclick="id_Check()"><br>
-    비밀번호: <input type="password" name="user_password" id="password" ><br>
-    비밀번호 확인: <input type="password" name="repw" id="password_Check" onkeyup="pw_Check()">
+    이름: <input type="text" name="user_name" id="name" maxlength="7"><br>
+    비밀번호: <input type="password" name="user_password" id="password" maxlength="15"><br>
+    비밀번호 확인: <input type="password" name="repw" id="password_Check" onkeyup="pw_Check()" maxlength="15">
     <td id="pwchecktext" width=100></td>
     <td align=center><input type="button" value="회원가입" onclick="check()"></td>
   </table>
