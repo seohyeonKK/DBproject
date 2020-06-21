@@ -2,7 +2,14 @@
   session_start();
   include './dbconn.php';
 
+  if($_POST['checkbox'] == 0)
+  {
+    echo "<script>alert('삭제할 정보를 선택해주세요.');</script>";
+    echo "<script> location.href='./delete.php';</script>";
+  }
+  
   $num = count($_POST['checkbox']);
+
 
   for($i=0;$i<$num;$i++)
   {
