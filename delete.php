@@ -33,7 +33,7 @@
          <tr>
             <th id = 'td_chk' width=50></th>
             <th id = 'td_account' width =250>&nbsp;계좌번호&nbsp;</th>
-            <th id = 'td_item' width =100>&nbsp;품목&nbsp;</th>
+            <th id = 'td_item' width =200>&nbsp;품목&nbsp;</th>
             <th id = 'td_item' width =100>&nbsp;가격&nbsp;</th>
             <th id = 'td_item' width =100>&nbsp;사이트&nbsp;</th>
             <th id = 'td_cheate' width =150>&nbsp;사이트 아이디 &nbsp;</th>
@@ -66,7 +66,7 @@
               <tr>
                 <td id ='td_chk' width = 50><center><input type='checkbox' name='checkbox[]' value='$register_code'></center></td>
                 <td id = 'td_account' width = 250><center> $account </center></td>
-                <td id = 'td_item' width = 100><center> $item </center></td>
+                <td id = 'td_item' width = 200><center> $item </center></td>
                 <td id = 'td_item' width = 100><center> $price </center></td>
                 <td id = 'td_item' width = 100><center> $site </center></td>
                 <td id = 'td_cheate' width = 150><center> $cheater_id </center</td>
