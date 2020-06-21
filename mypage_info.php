@@ -3,7 +3,6 @@
 <head>
   <?php
     session_start();
-    include './dbconn.php';
 
     $id = $_SESSION['id'];
     $pwd = $_SESSION['pwd'];

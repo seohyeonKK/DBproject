@@ -1,6 +1,5 @@
 <?php
   session_start();
-  include './dbconn.php';
   include './user_information.php';
 
  ?>

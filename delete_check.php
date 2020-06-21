@@ -2,7 +2,14 @@
   session_start();
   include './dbconn.php';
 
+  if($_POST['checkbox'] == 0)
+  {
+    echo "<script>alert('삭제할 정보를 선택해주세요.');</script>";
+    echo "<script> location.href='./delete.php';</script>";
+  }
+  
   $num = count($_POST['checkbox']);
+
 
   for($i=0;$i<$num;$i++)
   {
@@ -10,22 +17,42 @@
 
     //site_info 테이블의 튜플부터 삭제합니다.
     $query = "DELETE FROM site_info WHERE register_code_site=$register_code";
-    mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
 
     //victim_info 테이블의 튜플을 삭제합니다.
     $query = "DELETE FROM victim_info WHERE register_code_victim=$register_code";
-    mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
 
     //cheat_info 테이블의 튜플을 삭제하기 전, cheater_code를 받아옵니다.
     $query = "SELECT * FROM cheat_info WHERE register_code=$register_code";
     $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
     $row = mysqli_fetch_array($result);
     $cheater_code = $row["cheater_code_cheat"];
     $price = $row["price"];
 
     //cheat_info 테이블의 튜플을 삭제합니다.
     $query = "DELETE FROM cheat_info WHERE register_code=$register_code";
-    mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
 
     //cheater_info 테이블의 튜플을 삭제합니다.
     //총사기횟수가 1이면 해당 사기꾼의 정보를 삭제하고,
@@ -40,14 +67,29 @@
     if($cheat_count > 1) //총사기횟수가 2이상이면 총사기횟수와 사기금액을 갱신해준다.
     {
       $query = "UPDATE cheater_info SET cheat_count = cheat_count - 1 WHERE cheater_code = $cheater_code";
-      mysqli_query($conn, $query);
+      $result = mysqli_query($conn, $query);
+      if(!$result)
+      {
+        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+        return;
+      }
       $query = "UPDATE cheater_info SET total_price = total_price - $price WHERE cheater_code = $cheater_code";
-      mysqli_query($conn, $query);
+      $result = mysqli_query($conn, $query);
+      if(!$result)
+      {
+        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+        return;
+      }
     }
     else //총사기횟수가 1 이면 사기꾼의 정보를 삭제한다.
     {
       $query = "DELETE FROM cheater_info WHERE cheater_code=$cheater_code";
-      mysqli_query($conn, $query);
+      $result = mysqli_query($conn, $query);
+      if(!$result)
+      {
+        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+        return;
+      }
     }
   }
 

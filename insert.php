@@ -13,6 +13,11 @@
 
   $query = "SELECT * FROM cheater_info WHERE account='$account'";
   $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('사기정보를 등록하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
   $row = mysqli_fetch_array($result);
   $cheater_code = $row["cheater_code"];
 
@@ -22,24 +27,44 @@
   {
     //total_price값 갱신
     $query = "UPDATE cheater_info SET total_price=total_price+$price where cheater_code='$cheater_code'";
-    mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
 
     //cheat_count값 갱신
     $query = "UPDATE cheater_info SET cheat_count=cheat_count+1 where cheater_code='$cheater_code'";
-    mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
   }
   else  //해당 account에 대한 정보가 없을 경우 (새로 생성해주어야 함)
   {
     //해당 account에 대한 정보 삽입
     $query = "INSERT INTO cheater_info (account, total_price) VALUES ('$account', $price)";
-    mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
     $cheater_code = mysqli_insert_id($conn);
   }
 
 
   //cheat_info 테이블에 대한 값을 삽입 (해당 사기 정보)
   $query = "INSERT INTO cheat_info (cheater_code_cheat, item, price) VALUES ($cheater_code, '$item', $price)";
-  mysqli_query($conn, $query);
+  $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
 
 
   //cheat_info를 등록하면서 부여된 register_code 받아오기
@@ -49,16 +74,30 @@
   //victim_info 테이블에 대한 값을 삽입 (사기당한 해당 회원)
   $query = "SELECT * FROM member_info WHERE member_id='$id'";
   $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
   $row = mysqli_fetch_array($result);
   $member_num = $row["member_num"];
   $query = "INSERT INTO victim_info (member_num_victim, register_code_victim) VALUES ($member_num, $register_code)";
-  mysqli_query($conn, $query);
+  $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
 
 
   //site_info 테이블에 대한 값을 삽입 (사기당한 사이트 정보)
   $query = "INSERT INTO site_info (cheater_id, site, cheater_code_site, register_code_site) VALUES ('$site_id', '$site', $cheater_code, $register_code)";
-  mysqli_query($conn, $query);
-
+  $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
 
 ?>
 
@@ -118,6 +157,6 @@
 
       </table>
     </form>
-
+    <?mysqli_close($conn);?>
   </body>
 </html>

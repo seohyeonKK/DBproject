@@ -7,6 +7,11 @@
   // 같은 id가 있는지 중복을 체크합니다.
   $query = "SELECT * FROM member_info WHERE member_id = '$id'";
   $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('중복을 확인하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
   $num = mysqli_num_rows($result);
 
   if ( ($id=='') ){ // id,pw 공백일 시
@@ -30,5 +35,5 @@
     //location.href='./login_form.php'</script>";
   }
 
-
+  mysqli_close($conn);
 ?>
