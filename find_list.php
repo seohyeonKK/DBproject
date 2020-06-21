@@ -41,7 +41,7 @@
 
 <body align=center>
   <br>
-  <h2 id='page_title'> '<?=$account?>' 계좌의 사기 세부 이력 </h2>
+  <h2 id='page_title'> '<?=$account?>' 계좌의 사기 이력 </h2>
 
 <!-- 사기꾼의 총 이력을 합산하여 나타내줍니다.-->
   <center>
@@ -117,6 +117,7 @@
   }
 
   echo "<br><br><br><a href='find.php'><input id='btn_delete' type='button' value='재조회'></a><br><br>";
-  echo "<br><a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a>";
+  echo "<a href='allfind.php'><input id='btn_delete' type='button' value='전체 조회'></a><br><br>";
+  echo "<a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a>";
   mysqli_close($conn);
 ?>
