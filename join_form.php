@@ -74,7 +74,7 @@
   <div id="loginer">
     <div id="form">
       <fieldset>
-        <legend id="page_title">회원 가입 화면</legend>
+        <legend id="page_title">&nbsp;회원 가입&nbsp;</legend>
           <form name = "join_form" action = "./join.php" method = "POST">
             <table align="center">
               <tr align="right">

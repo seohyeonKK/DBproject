@@ -53,7 +53,7 @@
     ?>
   <br>
   <center>
-    <br><h3 id='page_sub_title'> 상세 이력 </h3>
+    <br><h3 id='page_sub_title'> 사이트에 등록된 사기 내역 </h3>
     <table>
        <tr>
           <th id = 'td_cheate' width =150>&nbsp;품목&nbsp;</th>

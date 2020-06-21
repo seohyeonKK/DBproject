@@ -48,28 +48,37 @@
     var pw_passwordCheck = document.getElementById("password_Check").value;
 
     if(pw_password != pw_passwordCheck){
-      document.getElementById("pwchecktext").innerHTML = "<b> pwd not same </b>";
+      document.getElementById("pwchecktext").innerHTML = "<b> ✘ </b>";
+      document.getElementById("pwchecktext").style.color = 'red';
     }
     else{
-      document.getElementById("pwchecktext").innerHTML = "<b> pwd OK </b>";
+      document.getElementById("pwchecktext").innerHTML = "<b> ✔ </b>";
+      document.getElementById("pwchecktext").style.color = 'green';
     }
   }
 
   </script>
-  <title>이름 변경</title>
+  <title>비밀번호 변경</title>
 </head>
 
 <body align=center>
   <br>
+  <center>
   <form name = "change_user_password" action="change_password.php" method="post">
-    <label>비밀번호: </label><input type="password" name="user_password" id="new_password" maxlength="15"><br>
-    <br>
-    <label>비밀번호 확인: </label><input type="password" name="repw" id="password_Check" onkeyup="pw_Check()" maxlength="15">
-    <br><br>
-    <table border="0" align="center" width=150>
-      <td value= " " id="pwchecktext" width=150 height=30></td>
+    <table>
+      <tr>
+        <td><label>비밀번호: </label></td>
+        <td><input type="password" name="user_password" id="new_password" maxlength="15"><br></td>
+      </tr>
+      <tr>
+        <td><label>비밀번호 확인:</td>
+        <td></label><input type="password" name="repw" id="password_Check" onkeyup="pw_Check()" maxlength="15"></td>
+        <td align ="left" value= " " id="pwchecktext"></td>
+      </tr><br>
     </table>
-  <input type="button" id="btn_ok" value="변경" onClick="checkInput()"></td>
-  </table>
+    <br><br>
+    <input type="button" id="btn_ok" value="변경" onClick="checkInput()"></td>
+  </form>
+  </center>
 </body>
 </html>
