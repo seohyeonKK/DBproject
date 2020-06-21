@@ -9,7 +9,8 @@
   $result = mysqli_query($conn, $query);
   if(!$result)
   {
-    echo "<script>alert('비밀번호 변경을 실패했습니다.');</script>";
+    echo "<script>alert('비밀번호를 변경하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
   }
   else
   {

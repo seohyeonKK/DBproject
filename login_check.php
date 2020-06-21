@@ -14,6 +14,11 @@ if ( ($id=='') || ($pwd=='') ){ // id,pw 공백일 시
 
 $query = "SELECT * FROM member_info WHERE member_id='$id' AND member_pw ='$pwd'";
 $result = mysqli_query($conn,$query);
+if(!$result)
+{
+  echo "<script>alert('로그인을 하는 과정에서 오류가 발생했습니다.');</script>";
+  return;
+}
 $row = mysqli_fetch_array($result);
 
 if ($id =$row['member_id'] && $pwd == $row['member_pw'])
@@ -35,4 +40,5 @@ else{
   echo "<script>location.href='index.html';</script>";
   //echo "<script>location.href='login.php';</script>";
 }
- ?>
+mysqli_close($conn);
+?>

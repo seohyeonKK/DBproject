@@ -8,12 +8,22 @@
 
     $query = "SELECT * FROM cheater_info WHERE account='$account'";
     $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
     $row = mysqli_fetch_array($result);
     $cheater_code = $row["cheater_code"];
 
 
     $query = "SELECT total_price, cheat_count, arrest FROM cheater_info WHERE account='$account'";
     $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
     $row = mysqli_fetch_array($result);
 
     $total_price = $row["total_price"];
@@ -80,6 +90,11 @@
     </table>
   ";
   $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
   while ($row = mysqli_fetch_array($result))
   {
     $item = $row["item"];

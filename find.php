@@ -1,6 +1,5 @@
 <?php
   session_start();
-  include './dbconn.php';
   include './user_information.php';
 
  ?>
@@ -16,7 +15,7 @@
 
      <script>
       function searchAccount(){
-        if(!document.find_form.account.value)
+        if(document.find_form.account.value.trim() == "")
         {
           alert('계좌를 입력하세요.');
           document.find_form.account.focus();
@@ -69,14 +68,19 @@
 
 <?
  //session_start();
- //include './dbconn.php';
+ include './dbconn.php';
  $account = $_POST['account'];
+ $string = "계좌를 입력해주세요.";
 
  $query = "SELECT * FROM cheater_info WHERE account='$account'";
  $result = mysqli_query($conn, $query);
+ if(!$result)
+ {
+   echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+   return;
+ }
  $row = mysqli_fetch_array($result);
 
- $string = "계좌를 입력해주세요.";
 
  if($account)
  {

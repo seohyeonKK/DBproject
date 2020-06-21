@@ -22,6 +22,11 @@
     $id = $_SESSION["id"];
     $query = "SELECT * FROM member_info WHERE member_id = '$id'";
     $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 불러오는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
     $row = mysqli_fetch_array($result);
 
     $member_num = $row["member_num"];
@@ -29,6 +34,11 @@
     //member_num을 통해 victim_info 테이블에서 register_code를 구합니다.
     $query = "SELECT * FROM victim_info WHERE member_num_victim = $member_num";
     $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 불러오는 과정에서 오류가 발생했습니다.');</script>";
+      return;
+    }
       echo "
       <table id='delete_table'>
          <tr>
@@ -50,6 +60,11 @@
 
         $query2 = "SELECT * FROM cheat_info WHERE register_code = $register_code";
         $result2 = mysqli_query($conn, $query2);
+        if(!$result2)
+        {
+          echo "<script>alert('사기 정보를 불러오는 과정에서 오류가 발생했습니다.');</script>";
+          return;
+        }
         $row2 = mysqli_fetch_array($result2);
 
         $cheater_code = $row2["cheater_code_cheat"];
@@ -58,6 +73,11 @@
 
         $query2 = "SELECT * FROM site_info WHERE register_code_site = $register_code";
         $result2 = mysqli_query($conn, $query2);
+        if(!$result2)
+        {
+          echo "<script>alert('사기 정보를 불러오는 과정에서 오류가 발생했습니다.');</script>";
+          return;
+        }
         $row2 = mysqli_fetch_array($result2);
 
         $site = $row2["site"];
@@ -65,6 +85,11 @@
 
         $query2 = "SELECT * FROM cheater_info WHERE cheater_code = $cheater_code";
         $result2 = mysqli_query($conn, $query2);
+        if(!$result2)
+        {
+          echo "<script>alert('사기 정보를 불러오는 과정에서 오류가 발생했습니다.');</script>";
+          return;
+        }
         $row2 = mysqli_fetch_array($result2);
 
         $account = $row2["account"];
