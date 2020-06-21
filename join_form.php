@@ -10,25 +10,25 @@
   function check(){
     var password = document.getElementById("password").value;
     var passwordCheck = document.getElementById("password_Check").value;
-    if(!document.join_form.user_id.value)
+    if(document.join_form.user_id.value.trim() == "")
     {
       alert("아이디를 입력하세요.");
       document.join_form.user_id.focus();
       return;
     }
-    else if(!document.join_form.user_name.value)
+    else if(document.join_form.user_name.value.trim() == "")
     {
       alert("이름을 입력하세요.");
       document.join_form.user_name.focus();
       return;
     }
-    else if(!document.join_form.user_password.value)
+    else if(document.join_form.user_password.value.trim() == "")
     {
       alert("비밀번호를 입력하세요.");
       document.join_form.user_password.focus();
       return;
     }
-    else if(!document.join_form.repw.value)
+    else if(document.join_form.repw.value.trim() == "")
     {
       alert("비밀번호를 확인하세요.");
       document.join_form.user_password.focus();
