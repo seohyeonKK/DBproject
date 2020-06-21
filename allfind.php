@@ -54,7 +54,7 @@
   <br>
   <center>
     <br><h3 id='page_sub_title'> 사이트에 등록된 사기 내역 </h3>
-    <table>
+    <table id ='delete_table'>
        <tr>
           <th id = 'td_cheate' width =150>&nbsp;품목&nbsp;</th>
           <th id = 'td_item' width =100>&nbsp;가격&nbsp;</th>
