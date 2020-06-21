@@ -6,7 +6,7 @@
 
     $account = $_GET['account'];
 
-    $query = "SELECT * FROM cheater_info WHERE account='$account'";
+    $query = "SELECT * FROM account_info WHERE account='$account'";
     $result = mysqli_query($conn, $query);
     if(!$result)
     {
@@ -14,10 +14,10 @@
       return;
     }
     $row = mysqli_fetch_array($result);
-    $cheater_code = $row["cheater_code"];
+    $cheater_code = $row["cheater_code_account"];
 
 
-    $query = "SELECT total_price, cheat_count, arrest FROM cheater_info WHERE account='$account'";
+    $query = "SELECT total_price, cheat_count, arrest FROM cheater_info WHERE cheater_code=$cheater_code";
     $result = mysqli_query($conn, $query);
     if(!$result)
     {
@@ -65,22 +65,11 @@
 
 
 <?
-  $query =
-  "SELECT c.cheater_code_cheat,
-    c.register_code,
-    c.item,
-    c.price,
-    s.cheater_id,
-    s.site
-    FROM cheat_info AS c
-    JOIN site_info AS s
-    ON c.cheater_code_cheat=s.cheater_code_site AND c.register_code=s.register_code_site
-    WHERE s.cheater_code_site=$cheater_code
-  ";
+
   echo "
   <center>
     <br><h3 id='page_sub_title'> 상세 이력 </h3>
-    <table>
+    <table id ='delete_table'>
        <tr>
           <th id = 'td_cheate' width =150>&nbsp;품목&nbsp;</th>
           <th id = 'td_item' width =100>&nbsp;가격&nbsp;</th>
@@ -89,12 +78,15 @@
        </tr>
     </table>
   ";
+
+  $query = "SELECT * FROM cheat_site_info WHERE cheater_code_cheat=$cheater_code";
   $result = mysqli_query($conn, $query);
   if(!$result)
   {
     echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
     return;
   }
+
   while ($row = mysqli_fetch_array($result))
   {
     $item = $row["item"];
@@ -104,7 +96,7 @@
 
     echo "
     <center>
-    <table >
+    <table id ='delete_table'>
        <tr>
           <td id = 'td_cheate' width =150><center> $item </center></td>
           <td id = 'td_item' width =100><center> $price </center></td>
