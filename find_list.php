@@ -17,7 +17,7 @@
     $cheater_code = $row["cheater_code_account"];
 
 
-    $query = "SELECT total_price, cheat_count, arrest FROM cheater_info WHERE cheater_code=$cheater_code";
+    $query = "SELECT total_price, cheat_count FROM cheater_info WHERE cheater_code=$cheater_code";
     $result = mysqli_query($conn, $query);
     if(!$result)
     {
@@ -28,10 +28,6 @@
 
     $total_price = $row["total_price"];
     $cheat_count = $row["cheat_count"];
-    $arrest = $row["arrest"];
-
-    if($arrest==0) $arrest='X';
-    else $arrest='X';
 
   ?>
   <link rel="stylesheet" href="common.css" type="text/css">
@@ -50,13 +46,11 @@
           <th id = 'td_account' width =200>&nbsp;계좌번호&nbsp;</th>
           <th id = 'td_item' width =100>&nbsp;총사기금액&nbsp;</th>
           <th id = 'td_item' width =100>&nbsp;총사기횟수&nbsp;</th>
-          <th id = 'td_item' width =100>&nbsp;검거여부&nbsp;</th>
        </tr>
        <tr>
           <td id = 'td_account'><center><? echo $account; ?></center></td>
           <td id = 'td_item'><center><? echo $total_price; ?></center></td>
           <td id = 'td_item'><center><? echo $cheat_count; ?></center></td>
-          <td id = 'td_item'><center><? echo $arrest; ?></center></td>
        </tr>
     </table>
   </center>
