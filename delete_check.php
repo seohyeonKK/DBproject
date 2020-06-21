@@ -7,7 +7,7 @@
     echo "<script>alert('삭제할 정보를 선택해주세요.');</script>";
     echo "<script> location.href='./delete.php';</script>";
   }
-  
+
   $num = count($_POST['checkbox']);
 
 
@@ -20,7 +20,7 @@
     $result = mysqli_query($conn, $query);
     if(!$result)
     {
-      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.1');</script>";
       return;
     }
 
@@ -29,7 +29,7 @@
     $result = mysqli_query($conn, $query);
     if(!$result)
     {
-      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.2');</script>";
       return;
     }
 
@@ -38,7 +38,7 @@
     $result = mysqli_query($conn, $query);
     if(!$result)
     {
-      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.3');</script>";
       return;
     }
     $row = mysqli_fetch_array($result);
@@ -50,7 +50,7 @@
     $result = mysqli_query($conn, $query);
     if(!$result)
     {
-      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.4');</script>";
       return;
     }
 
@@ -61,6 +61,11 @@
     //총사기횟수(cheat_count)를 받아온다.
     $query = "SELECT * FROM cheater_info WHERE cheater_code=$cheater_code";
     $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.5');</script>";
+      return;
+    }
     $row = mysqli_fetch_array($result);
     $cheat_count = $row["cheat_count"];
 
@@ -70,24 +75,32 @@
       $result = mysqli_query($conn, $query);
       if(!$result)
       {
-        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.6');</script>";
         return;
       }
       $query = "UPDATE cheater_info SET total_price = total_price - $price WHERE cheater_code = $cheater_code";
       $result = mysqli_query($conn, $query);
       if(!$result)
       {
-        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.7');</script>";
         return;
       }
     }
     else //총사기횟수가 1 이면 사기꾼의 정보를 삭제한다.
     {
+      $query = "DELETE FROM account_info WHERE cheater_code_account=$cheater_code";
+      $result = mysqli_query($conn, $query);
+      if(!$result)
+      {
+        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.8');</script>";
+        return;
+      }
+
       $query = "DELETE FROM cheater_info WHERE cheater_code=$cheater_code";
       $result = mysqli_query($conn, $query);
       if(!$result)
       {
-        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.');</script>";
+        echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.8');</script>";
         return;
       }
     }
