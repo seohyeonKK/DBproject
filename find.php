@@ -67,7 +67,7 @@
    $account = $_POST['account'];
    $string = "계좌를 입력해주세요.";
 
-   $query = "SELECT * FROM cheater_info WHERE account='$account'";
+   $query = "SELECT * FROM account_info WHERE account='$account'";
    $result = mysqli_query($conn, $query);
    if(!$result)
    {

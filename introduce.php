@@ -26,7 +26,7 @@
         </p>
       </fieldset>
       <br>
-      <input type='button' value='로그인페이지' id="btn_ok" onClick="location.href='index.html'";>
+      <input type='button' value='로그인페이지' id="btn_mainpage" onClick="location.href='index.html'";>
     </div>
   </body>
 </html>
