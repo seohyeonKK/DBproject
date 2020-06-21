@@ -123,7 +123,7 @@
         </tr>
 
         <tr>
-          <td bgcolor=white>&nbsp;
+          <td bgcolor=white>
             <table align=center>
               <tr >
                 <td id = "acc_information">등록자</td>

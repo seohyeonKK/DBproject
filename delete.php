@@ -115,7 +115,7 @@
       }
 
       echo "<br><br><input type='submit' id='btn_delete' value='삭제'></a>";
-      echo "<br><br><br><a href='main.php'><input type='button' id='btn_ok' value='메인페이지'></a></form>";
+      echo "<br><br><a href='main.php'><input type='button' id='btn_ok' value='메인페이지'></a></form>";
       mysqli_close($conn)
 
       ?>

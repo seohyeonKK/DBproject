@@ -69,7 +69,7 @@
             <table id ="acc_table" align=center>
               <tr>
                 <td id = "acc_information">등록자</td>
-                <td id = "acc_input"><input type=text value="<?=$_SESSION['id']?>" name="name" size=25 maxlength=10 readonly></td>
+                <td id = "acc_input">&nbsp;&nbsp;<input type=text value="<?=$_SESSION['id']?>" name="name" size=25 maxlength=10 readonly></td>
               </tr>
               <tr>
                 <td id = "acc_information">계좌</td>

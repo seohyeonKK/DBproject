@@ -5,6 +5,28 @@ body{
   font-family: 'Nanum Brush Script',cursive;
 }
 
+#find_css{
+  font-size: 25px;
+  text-align : center;
+}
+#find_link_css{
+  text-decoration : none;
+  font-weight: bold;
+  font-size: 30px;
+  text-align : center;
+  color : Salmon;
+}
+#find_link_css:hover{
+  text-decoration : none;
+  color : Lightblue;
+}
+
+
+#pop_up_css{
+  text-align : center;
+  margin-top : 35px;
+  font-size:25px;
+}
 
 #loginer
 {
@@ -57,7 +79,7 @@ body{
   font : italic;
   font-size : 25px;
   font-weight : bold;
-  color : RGB(0,51,102);
+  color : black;
   cursive;
 }
 
@@ -86,6 +108,22 @@ body{
 ::placeholder{
   font-size : 1.3em;
   font-family: 'Nanum Brush Script',cursive;
+}
+
+#btn_search{
+  font-family: 'Nanum Brush Script',cursive;
+  color : black;
+  font-size : 20px;
+  border : 0px;
+  width : 50px;
+  height : 25px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_search:hover {
+  background: Lightblue;
+  color: white;
+  opacity: 1;
 }
 
 #btn_login{
@@ -125,20 +163,66 @@ body{
   display: inline-block;
 }
 
-#btn_mainpage{
+#btn_mainpage_insert{
   font-family:'Nanum Brush Script',cursive;
   font-size: 30px;
   border : 0px;
-  width : 150px;
-  height : 50px;
+  width : 120px;
+  height : 120px;
   opacity: 0.6;
   transition: 0.3s;
 }
-#btn_mainpage:hover {
+#btn_mainpage_insert:hover {
   background: Lightblue;
   color: white;
   opacity: 1;
 }
+
+#btn_mainpage_find{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 20px;
+  border : 0px;
+  width : 120px;
+  height : 60px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_mainpage_find:hover {
+  background: black;
+  color: white;
+  opacity: 1;
+}
+
+#btn_mainpage_allfind{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 20px;
+  border : 0px;
+  width : 120px;
+  height : 60px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_mainpage_allfind:hover {
+  background: black;
+  color: white;
+  opacity: 1;
+}
+
+#btn_mainpage_delete{
+  font-family:'Nanum Brush Script',cursive;
+  font-size: 30px;
+  border : 0px;
+  width : 120px;
+  height : 120px;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+#btn_mainpage_delete:hover {
+  background: LightCoral;
+  color: white;
+  opacity: 1;
+}
+
 
 #btn_mypage{
   font-family:'Nanum Brush Script',cursive;

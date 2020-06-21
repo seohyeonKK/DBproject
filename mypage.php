@@ -39,12 +39,12 @@
           <p id='page_sub_title'> 회원 정보를 조회하려면 비밀번호를 입력해주세요. </p>
           <form name = "check">
             <label id='user_id_pwd_label'>비밀번호</labe> &nbsp; <input type="password" name="password_check" maxlength="15"> &nbsp;&nbsp;
-            <input type="button" value="확인" id='btn_check' onclick="checkPassword()">
+            <input type="button" value="확인" id='btn_search' onclick="checkPassword()">
           </form>
 
           <br><br><br>
           <a href='logout.php'><input type='button' id='btn_delete' value='로그아웃 '></a>
-          <br><br><br>
+          <br><br>
           <a href='main.php'><input type='button' id='btn_ok' value='메인페이지' name='back'></a>
           <br><br>
       </fieldset>
