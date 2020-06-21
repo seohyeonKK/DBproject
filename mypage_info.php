@@ -14,11 +14,11 @@
   <script>
     function changePassword()
     {
-        window.open("password.php", "changePassword", "width=500, height=500, menubar=no, toolbar=no");
+        window.open("password.php", "changePassword", "width=400, height=200, menubar=no, toolbar=no");
     }
     function changeName()
     {
-        window.open("name.php", "changeName", "width=500, height=500, menubar=no, toolbar=no");
+        window.open("name.php", "changeName", "width=400, height=200, menubar=no, toolbar=no");
     }
   </script>
   <link rel="stylesheet" href="common.css" type="text/css">
