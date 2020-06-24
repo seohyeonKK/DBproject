@@ -16,23 +16,23 @@
     $register_code =  $_POST['checkbox'][$i];
 
     //site_info 테이블의 튜플부터 삭제합니다.
-    // $query = "DELETE FROM site_info WHERE register_code_site=$register_code";
-    // $result = mysqli_query($conn, $query);
-    // if(!$result)
-    // {
-    //   echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.1');</script>";
-    //   return;
-    // }
-    //
-    // //victim_info 테이블의 튜플을 삭제합니다.
-    // $query = "DELETE FROM victim_info WHERE register_code_victim=$register_code";
-    // $result = mysqli_query($conn, $query);
-    // if(!$result)
-    // {
-    //   echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.2');</script>";
-    //   return;
-    // }
-    //
+    $query = "DELETE FROM site_info WHERE register_code_site=$register_code";
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.1');</script>";
+      return;
+    }
+
+    //victim_info 테이블의 튜플을 삭제합니다.
+    $query = "DELETE FROM victim_info WHERE register_code_victim=$register_code";
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.2');</script>";
+      return;
+    }
+
     // //cheat_info 테이블의 튜플을 삭제하기 전, cheater_code를 받아옵니다.
     $query = "SELECT * FROM cheat_info WHERE register_code=$register_code";
     $result = mysqli_query($conn, $query);
@@ -46,13 +46,13 @@
     $price = $row["price"];
 
     //cheat_info 테이블의 튜플을 삭제합니다.
-    // $query = "DELETE FROM cheat_info WHERE register_code=$register_code";
-    // $result = mysqli_query($conn, $query);
-    // if(!$result)
-    // {
-    //   echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.4');</script>";
-    //   return;
-    // }
+    $query = "DELETE FROM cheat_info WHERE register_code=$register_code";
+    $result = mysqli_query($conn, $query);
+    if(!$result)
+    {
+      echo "<script>alert('사기 정보를 삭제하는 과정에서 오류가 발생했습니다.4');</script>";
+      return;
+    }
 
     //cheater_info 테이블의 튜플을 삭제합니다.
     //총사기횟수가 1이면 해당 사기꾼의 정보를 삭제하고,
