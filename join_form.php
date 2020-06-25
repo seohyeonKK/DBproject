@@ -10,6 +10,9 @@
   function check(){
     var password = document.getElementById("password").value;
     var passwordCheck = document.getElementById("password_Check").value;
+
+    var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
+
     if(document.join_form.user_id.value.trim() == "")
     {
       alert("아이디를 입력하세요.");
@@ -34,7 +37,20 @@
       document.join_form.user_password.focus();
       return;
     }
-    else if(password != passwordCheck){
+    else if(regExp.test(document.join_form.user_id.value))
+    {
+      alert("아이디를 입력할 때는 특수문자를 제외해주세요.");
+      document.join_form.user_id.focus();
+      return;
+    }
+    else if(regExp.test(document.join_form.user_name.value))
+    {
+      alert("이름을 입력할 때는 특수문자를 제외해주세요.");
+      document.join_form.user_name.focus();
+      return;
+    }
+    else if(password != passwordCheck)
+    {
       alert("비밀번호가 같지 않습니다.");
       document.join_form.repw.focus();
       return;
@@ -45,6 +61,13 @@
   function id_Check()
   {
     var userid = document.all.user_id.value;
+    var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
+    if(regExp.test(document.join_form.user_id.value))
+    {
+      alert("아이디를 입력할 때는 특수문자를 제외해주세요.");
+      document.join_form.user_id.focus();
+      return;
+    }
     url = "checkid.php?user_id="+userid;
     window.open(url, "chkid", "width=400, height=200, menubar=no, toolbar=no");
   }

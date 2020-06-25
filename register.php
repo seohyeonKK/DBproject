@@ -15,37 +15,66 @@
 
     <script>
 
-    function checkInput(){
-      if(!document.register_info.account.value)
+    function checkInput()
+    {
+      var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
+
+      if(document.register_info.account.value.trim() == "")
       {
         alert("사기꾼의 계좌를 입력하세요.");
         document.register_info.account.focus();
         return;
       }
-      else if(!document.register_info.item.value)
+      else if(document.register_info.item.value.trim() == "")
       {
         alert("사기당한 품목을 입력하세요.");
         document.register_info.item.focus();
         return;
       }
-      else if(!document.register_info.price.value)
+      else if(document.register_info.price.value.trim() == "")
       {
         alert("사기당한 금액을 입력하세요.");
         document.register_info.price.focus();
         return;
       }
-      else if(!document.register_info.site.value)
-      {
-        alert("사기당한 사이트를 입력하세요.");
-        document.register_info.site.focus();
-        return;
-      }
-      else if(!document.register_info.site_id.value)
+      else if(document.register_info.site_id.value.trim() == "")
       {
         alert("사기꾼의 아이디를 입력하세요.");
         document.register_info.site_id.focus();
         return;
       }
+      else if(document.register_info.site.value.trim() == "")
+      {
+        alert("사기당한 사이트를 입력하세요.");
+        document.register_info.site.focus();
+        return;
+      }
+      else if(isNaN(account_int))
+      {
+        alert("계좌 번호는 숫자만 입력해주세요.");
+        document.register_info.account.focus();
+        return;
+      }
+      else if(regExp.test(document.register_info.item.value))
+      {
+        alert("특수문자를 제외하고 입력해주세요.");
+        document.register_info.item.focus();
+        return;
+      }
+      else if(isNaN(price_int))
+      {
+        alert("금액은 숫자만 입력해주세요.");
+        document.register_info.price.focus();
+        return;
+      }
+      else if(regExp.test(document.register_info.site.value))
+      {
+        alert("사이트의 이름만을 입력해주세요");
+        document.register_info.price.focus();
+        return;
+      }
+      document.register_info.account.value = account_int;
+      document.register_info.price.value = price_int;
       document.register_info.submit();
 
     }
