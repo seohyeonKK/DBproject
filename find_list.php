@@ -59,7 +59,6 @@
 
 
 <?
-
   echo "
   <center>
     <br><h3 id='page_sub_title'> 상세 이력 </h3>

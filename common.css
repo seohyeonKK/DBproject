@@ -1,6 +1,7 @@
 /* # id 선택자
 . clsss 선택자 */
 body{
+  align : center;
   background-color : RGB(255,255,255);
   font-family: 'Nanum Brush Script',cursive;
 }
@@ -44,6 +45,7 @@ body{
 }
 
 #project_title{
+  text-align : center;
   font : italic;
   font-size : 45px;
   font-weight : bold;

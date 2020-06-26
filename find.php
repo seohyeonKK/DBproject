@@ -1,9 +1,7 @@
 <?php
   session_start();
   include './user_information.php';
-
  ?>
-
 
  <!DOCTYPE html>
  <html>
@@ -23,9 +21,8 @@
         document.find_form.submit();
       }
      </script>
-
-
    </head>
+
    <body topmargin=0 leftmargin=0 text="#464646">
      <center>
      <br>

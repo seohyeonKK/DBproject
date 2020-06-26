@@ -1,18 +1,24 @@
+<!--
+delete.php파일에서 '삭제'버튼을 누르면 실행되는 파일으로 db에 저장된 사건의 데이터를 삭제 및 갱신합니다.
+-->
+
 <?
   session_start();
   include './dbconn.php';
 
+  // 삭제하려고 선택된 checkbox가 없는 경우에 예외처리를 통해 삭제할 정보를 선택하라고 알려줍니다.
   if($_POST['checkbox'] == 0)
   {
     echo "<script>alert('삭제할 정보를 선택해주세요.');</script>";
     echo "<script> location.href='./delete.php';</script>";
   }
 
+  // 넘겨받은 checkbox의 갯수를 세아려 줍니다.
   $num = count($_POST['checkbox']);
-
 
   for($i=0;$i<$num;$i++)
   {
+    // 넘겨받은 checkbox를 차례대로 사건 정보에 대한 정보가 담긴 register_code를 통해 삭제를 진행합니다.
     $register_code =  $_POST['checkbox'][$i];
 
     //site_info 테이블의 튜플부터 삭제합니다.
@@ -86,7 +92,7 @@
         return;
       }
     }
-    else //총사기횟수가 1 이면 사기꾼의 정보를 삭제한다.
+    else //총사기횟수가 1 이면 사기꾼의 정보를 삭제합니다.
     {
       $query = "DELETE FROM account_info WHERE cheater_code_account=$cheater_code";
       $result = mysqli_query($conn, $query);
@@ -105,8 +111,6 @@
       }
     }
   }
-
-
 
   mysqli_close($conn);
   echo "<script> alert('선택한 정보가 삭제되었습니다.');</script>";

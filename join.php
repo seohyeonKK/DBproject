@@ -1,12 +1,16 @@
+<!--
+join_form.php에서 입력받은 회원가입 시 필요한 데이터들을 전달받아 member_info테이블에 데이터를 생성합니다.
+-->
+
 <?
   include './dbconn.php';
 
-  // user_id와 user_password를 받아옵니다.
+  // join_form에서 입력받은 user_id, user_password, user_name을 받아옵니다.
   $id = $_POST['user_id'];
   $pwd = $_POST['user_password'];
   $name = $_POST['user_name'];
 
-  // 같은 id가 있는지 중복을 체크합니다.
+  // db의 member_info테이블에 같은 id가 있는지 중복여부를 체크합니다.
   $query = "SELECT * FROM member_info WHERE member_id = '$id'";
   $result = mysqli_query($conn, $query);
   if(!$result)
@@ -41,7 +45,6 @@
   }
   else
   {
-
     // <script>
     //   alert('Duplicated Id');
     //   location.href = './index.html';

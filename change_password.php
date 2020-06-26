@@ -1,3 +1,8 @@
+<!--
+마이페이지에서 비밀번호를 변경시 이용되는 파일입니다.
+비밀번호을 성공적으로 변경 할 때에는 세션의 pwd값을 변경해 줍니다.
+ -->
+
 <?
   include './dbconn.php';
   session_start();
@@ -15,7 +20,10 @@
   else
   {
     $_SESSION['pwd'] = $password;
-    echo "<script>opener.location.reload();window.close();</script>";
+    echo "<script>
+          opener.location.reload();
+          window.close();
+          </script>";
   }
   mysqli_close($conn);
 ?>
