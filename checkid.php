@@ -39,16 +39,10 @@ join_form.php파일에서 입력받은 id를 전달받아 db의 member_info테�
       if($num)
       {
         printf("이미 존재하는 아이디입니다!");
-        // echo "<script> alert('중복아님다'); </script>";
-        // echo "<script> window.history.back(); </script>";
-        //location.href='./main.php'</script>";
       }
       else
       {
         printf("사용 가능한 아이디입니다. :)");
-        // echo "<script> alert('중복임다'); </script>";
-        // echo "<script> window.history.back(); </script>";
-        //location.href='./login_form.php'</script>";
       }
 
       mysqli_close($conn);

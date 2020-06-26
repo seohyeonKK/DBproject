@@ -18,21 +18,16 @@
       </script>
       ";
     }
-
+    $option = $_GET['option'];
   ?>
   <head>
     <link rel="stylesheet" href="common.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
     <script type="text/javascript">
-
-    function select_align(e){
-      if(e.value=="record"){
-         location.href='./allfind.php'
-      }
-      else if(e.value="price"){
-        location.href='./allfind_price.php'
-      }
+    function select_align(e)
+    {
+      window.location.href = "allfind.php?option=" + e.value;
     }
 
     </script>
@@ -44,11 +39,19 @@
     <h3 id='page_sub_title' align="center"> 사이트에 등록된 사기 내역 </h3>
 
     <center>
+      <br><br>
+      <a href='find.php'><input id='btn_delete' type='button' value='계좌로 조회'></a>&nbsp;&nbsp;&nbsp;
+      <a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a>
+      <br><br><br>
     <div id="select_box">
-      <label for="list_align">정렬순서</label>
       <select id="list_align" name="list_align" onchange="select_align(this)">
-        <option value="record" selected>등록순</option>
-        <option value="price">금액순</option>
+        <option selected disabled value="0">정렬 순서</option>
+        <option value="1">등록번호</option>
+        <option value="2">계좌</option>
+        <option value="3">품목</option>
+        <option value="4">가격</option>
+        <option value="5">사이트아이디</option>
+        <option value="6">사이트</option>
       </select>
     </div>
     <br><br>
@@ -68,7 +71,29 @@
 
     <?
       //사건의 정보가 담긴 cheat_info 테이블의 데이터들을 불러와 등록된 사기 목록을 보여줍니다.
-      $query = "SELECT * FROM cheat_site_info ORDER BY register_code ASC";
+
+      if($option=="1"){
+        $query = "SELECT * FROM cheat_site_info ORDER BY register_code";
+      }
+      else if($option=="2"){
+        $query = "SELECT * FROM cheat_site_info ORDER BY account";
+      }
+      else if($option=="3"){
+        $query = "SELECT * FROM cheat_site_info ORDER BY item";
+      }
+      else if($option=="4"){
+        $query = "SELECT * FROM cheat_site_info ORDER BY price";
+      }
+      else if($option=="5"){
+        $query = "SELECT * FROM cheat_site_info ORDER BY cheater_id";
+      }
+      else if($option=="6"){
+        $query = "SELECT * FROM cheat_site_info ORDER BY site";
+      }
+      else {
+        $query = "SELECT * FROM cheat_site_info ORDER BY register_code";
+      }
+
       $result = mysqli_query($conn, $query);
       if(!$result)
       {
@@ -98,15 +123,15 @@
               <td id = 'td_item' width =100><center> $site </center></td>
            </tr>
         </table>
-
+        </center>
          ";
       }
 
-      echo "<br><br><br>";
-      echo "<a href='find.php'><input id='btn_delete' type='button' value='계좌로 조회'></a>";
-      echo "<br><br><br>";
-      echo "<a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a>
-      </center>";
+      // echo "<br><br><br>";
+      // echo "<a href='find.php'><input id='btn_delete' type='button' value='계좌로 조회'></a>";
+      // echo "<br><br>";
+      // echo "<a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a><br><br>
+      // </center>";
 
       mysqli_close($conn);
     ?>
