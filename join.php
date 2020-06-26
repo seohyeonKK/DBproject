@@ -20,11 +20,6 @@ join_form.php에서 입력받은 회원가입 시 필요한 데이터들을 전�
   }
   $num = mysqli_num_rows($result);
 
-  // if ( ($id=='') || ($pwd=='') ){ // id,pw 공백일 시
-  //   echo "<script> alert('아이디 또는 비밀번호를 입력해'); </script>";
-  //   echo "<script> window.history.back(); </script>";
-  //   return;
-  // }
 
   // 데이터 받아온 것을 넘깁니다.
   // 중복된 것이 없으면 if(!0) 하여 if문의 조건을 만족하게 됩니다.
@@ -38,20 +33,14 @@ join_form.php에서 입력받은 회원가입 시 필요한 데이터들을 전�
       echo "<script>alert('회원가입을 하는 과정에서 오류가 발생했습니다.');</script>";
       return;
     }
-    //mysqli_query($conn, $query3);
     echo "<script> alert('회원가입 성공! 환영합니다 :D
     다시 로그인 해주세요 ^^ '); </script>";
     echo "<script>location.href='./index.html'</script>";
   }
   else
   {
-    // <script>
-    //   alert('Duplicated Id');
-    //   location.href = './index.html';
-    // </script>
     echo "<script> alert('중복된 아이디입니다. 중복 검사를 해주세요.'); </script>";
     echo "<script> window.history.back(); </script>";
-    //location.href='./login_form.php'</script>";
   }
   mysqli_close($conn);
 ?>

@@ -28,7 +28,7 @@
           <td rowspan="2"><input type='button' value='삭제' id="btn_mainpage_delete" onClick="location.href='delete.php'";></td>
         </tr>
         <tr>
-          <td><input type='button' value='전체 조회' id="btn_mainpage_allfind" onClick="location.href='allfind.php'";></td>
+          <td><input type='button' value='전체 조회' id="btn_mainpage_allfind" onClick="location.href='allfind.php?option=1'";></td>
         </tr>
       </table>
 
