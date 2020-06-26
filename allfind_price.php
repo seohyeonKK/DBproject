@@ -1,7 +1,6 @@
 <!--
-'메뉴'화면에서 '전체 조회'버튼 클릭 시 보이는 화면입니다.
+'메뉴'화면에서 '전체 조회'에서 정렬순서를 '가격순'으로 했을 때 보이는 화면입니다.
 사이트에 등록된 모든 사기 내역에 대한 정보를 확인 할 수 있습니다.
-기본으로는 등록순서대로 보입니다.
 -->
 
 <html>
@@ -18,7 +17,6 @@
       </script>
       ";
     }
-
   ?>
   <head>
     <link rel="stylesheet" href="common.css" type="text/css">
@@ -47,8 +45,9 @@
     <div id="select_box">
       <label for="list_align">정렬순서</label>
       <select id="list_align" name="list_align" onchange="select_align(this)">
-        <option value="record" selected>등록순</option>
-        <option value="price">금액순</option>
+        <option >정렬순서</option>
+        <option value="record">등록순</option>
+        <option value="price" selected>금액순</option>
       </select>
     </div>
     <br><br>
@@ -68,14 +67,13 @@
 
     <?
       //사건의 정보가 담긴 cheat_info 테이블의 데이터들을 불러와 등록된 사기 목록을 보여줍니다.
-      $query = "SELECT * FROM cheat_site_info ORDER BY register_code ASC";
+      $query = "SELECT * FROM cheat_site_info ORDER BY price ASC";
       $result = mysqli_query($conn, $query);
       if(!$result)
       {
         echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
         return;
       }
-
       // mysqli_query를 통해 얻은 result set에서 mysqli_fetch_array()함수를 통해  레코드를 1개씩 반환받아 row배열에 저장합니다.
       while ($row = mysqli_fetch_array($result))
       {
