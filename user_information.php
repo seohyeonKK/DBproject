@@ -12,6 +12,16 @@
   // 로그인 상태바 레이아웃 div 입니다. session 아이디와 이름을 가져와 표시합니다.
   echo "<div id ='login_status' style=\"text-align:right\">";
   $s_id = $_SESSION['id'];
+
+  if(!isset($_SESSION['id']))
+  {
+    echo "
+    <script>
+    alert('로그인 후 이용하세요.');
+    location.href='index.html';
+    </script>
+    ";
+  }
   $query = "SELECT * FROM member_info WHERE member_id='$s_id'";
   $result = mysqli_query($conn,$query);
   if(!$result)
@@ -26,7 +36,7 @@
 
   // 마이페이지로 이동하는 버튼과, 로그아웃을 위한 버튼도 표시됩니다.
   echo "&nbsp; <a href='mypage.php'><input type='button' id='btn_mypage' value='마이페이지'></a>"; // 마이페이지로 이동
-  echo "&nbsp; <a href='logout.php'><input type='button' id='btn_mypage_logout' value='로그아웃'></a> &nbsp;&nbsp;"
+  echo "&nbsp; <a href='logout.php'><input type='button' id='btn_mypage_logout' value='로그아웃'></a> &nbsp;&nbsp;";
   echo "</div>";
 
   // 페이지가 갱신된 시간을 알려줍니다.

@@ -4,6 +4,16 @@
     session_start();
     include './dbconn.php';
 
+    if(!isset($_SESSION['id']))
+    {
+      echo "
+      <script>
+      alert('로그인 후 이용하세요.');
+      location.href='index.html';
+      </script>
+      ";
+    }
+
     $account = $_GET['account'];
 
     $query = "SELECT * FROM account_info WHERE account='$account'";
@@ -15,7 +25,6 @@
     }
     $row = mysqli_fetch_array($result);
     $cheater_code = $row["cheater_code_account"];
-
 
     $query = "SELECT total_price, cheat_count FROM cheater_info WHERE cheater_code=$cheater_code";
     $result = mysqli_query($conn, $query);
@@ -64,6 +73,7 @@
     <br><h3 id='page_sub_title'> 상세 이력 </h3>
     <table id ='delete_table'>
        <tr>
+          <th id = 'td_cheate' width =100>&nbsp;사기 등록번호&nbsp;</th>
           <th id = 'td_cheate' width =150>&nbsp;품목&nbsp;</th>
           <th id = 'td_item' width =100>&nbsp;가격&nbsp;</th>
           <th id = 'td_cheate' width =150>&nbsp;사이트 아이디&nbsp;</th>
@@ -86,11 +96,13 @@
     $price = $row["price"];
     $cheater_id = $row["cheater_id"];
     $site = $row["site"];
+    $register_code = $row["register_code"];
 
     echo "
     <center>
     <table id ='delete_table'>
        <tr>
+          <td id = 'td_item' width =100><center> $register_code </center></td>
           <td id = 'td_cheate' width =150><center> $item </center></td>
           <td id = 'td_item' width =100><center> $price </center></td>
           <td id = 'td_cheate' width =150><center> $cheater_id </center></td>

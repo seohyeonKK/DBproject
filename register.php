@@ -95,7 +95,7 @@
 
         <tr>
           <td bgcolor=white>&nbsp;
-            
+
             <!-- 사건의 정보를 입력받는 테이블입니다. -->
             <table id ="acc_table" align=center>
               <tr>

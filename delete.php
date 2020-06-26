@@ -35,6 +35,7 @@
       <table id='delete_table'>
         <tr>
           <th id = 'td_chk' width=50></th>
+          <th id = 'td_item' width =100>&nbsp;사기 등록번호&nbsp;</th>
           <th id = 'td_account' width =250>&nbsp;계좌번호&nbsp;</th>
           <th id = 'td_item' width =200>&nbsp;품목&nbsp;</th>
           <th id = 'td_item' width =100>&nbsp;가격&nbsp;</th>
@@ -66,11 +67,13 @@
       $price = $row2["price"];
       $cheater_id = $row2["cheater_id"];
       $site = $row2["site"];
+
       echo"
         <center>
           <table id ='delete_table'>
             <tr>
               <td id ='td_chk' width = 50><center><input type='checkbox' name='checkbox[]' value='$register_code'></center></td>
+              <td id = 'td_item' width = 100><center> $register_code </center></td>
               <td id = 'td_account' width = 250><center> $account </center></td>
               <td id = 'td_item' width = 200><center> $item </center></td>
               <td id = 'td_item' width = 100><center> $price </center></td>
