@@ -59,8 +59,17 @@
 
 <div id="find_css">
   <?
-   //session_start();
+   session_start();
    include './dbconn.php';
+   if(!isset($_SESSION['id']))
+   {
+     echo "
+     <script>
+     alert('로그인 후 이용하세요.');
+     location.href='index.html';
+     </script>
+     ";
+   }
    $account = $_POST['account'];
    $string = "계좌를 입력해주세요.";
 

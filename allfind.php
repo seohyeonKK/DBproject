@@ -7,6 +7,17 @@
   <?
     session_start();
     include './dbconn.php';
+
+    if(!isset($_SESSION['id']))
+    {
+      echo "
+      <script>
+      alert('로그인 후 이용하세요.');
+      location.href='index.html';
+      </script>
+      ";
+    }
+
   ?>
   <head>
     <link rel="stylesheet" href="common.css" type="text/css">
@@ -20,6 +31,7 @@
     <!-- db에 등록된 모든 사기 정보를 보여주는 테이블 입니다. -->
     <table id ='delete_table' align="center">
        <tr>
+          <th id = 'td_cheate' width =100>&nbsp;사기 등록번호&nbsp;</th>
           <th id = 'td_cheate' width =150>&nbsp;계좌&nbsp;</th>
           <th id = 'td_cheate' width =150>&nbsp;품목&nbsp;</th>
           <th id = 'td_item' width =100>&nbsp;가격&nbsp;</th>
@@ -46,11 +58,13 @@
         $price = $row["price"];
         $cheater_id = $row["cheater_id"];
         $site = $row["site"];
+        $register_code = $row["register_code"];
 
         echo "
         <center>
         <table id ='delete_table'>
            <tr>
+              <td id = 'td_item' width =100><center> $register_code </center></td>
               <td id = 'td_cheate' width =150><center> $account </center></td>
               <td id = 'td_cheate' width =150><center> $item </center></td>
               <td id = 'td_item' width =100><center> $price </center></td>
@@ -58,14 +72,15 @@
               <td id = 'td_item' width =100><center> $site </center></td>
            </tr>
         </table>
-        </center>
+
          ";
       }
 
       echo "<br><br><br>";
       echo "<a href='find.php'><input id='btn_delete' type='button' value='계좌로 조회'></a>";
       echo "<br><br><br>";
-      echo "<a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a>";
+      echo "<a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a>
+      </center>";
 
       mysqli_close($conn);
     ?>

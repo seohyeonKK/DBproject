@@ -2,6 +2,15 @@
 <head>
   <?php
     session_start();
+    if(!isset($_SESSION['id']))
+    {
+      echo "
+      <script>
+      alert('로그인 후 이용하세요.');
+      location.href='index.html';
+      </script>
+      ";
+    }
     $id = $_SESSION['id'];
     $pwd = $_SESSION['pwd'];
     $s_name = $_SESSION['name'];
