@@ -4,11 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- 글씨체 설정을 위한 외부 스타일 시트 연결합니다. -->
   <link rel="stylesheet" href="common.css" type="text/css">
+  <!-- 연결할 글씨체 리소스의 url입니다. -->
   <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
   <title>Judgement</title>
+
   <script>
+    // '로그인'버튼 누르면 실행되는 함수입니다.
+    // 로그인을 위해 아이디와 비밀번호 입력여부를 검사합니다.
     function checkInputForm()
     {
       // Id 값을 입력받았는지 확인합니다.
@@ -31,10 +37,13 @@
 </head>
 
 <body>
-  <center>
-  <br><br><h1 id="project_title"> 심 판 </h1>
+  <br><br>
+  <h1 id="project_title" align="center"> 심 판 </h1>
+
   <div id="loginer">
     <div id="form">
+       <!-- 로그인 시, 사용자가 입력한 내용과 db에 저장된 member_info테이블의 내용과 비교해, 로그인 실패 또는 성공을 결정하는데 사용됩니다.
+        login버튼을 누르면 해당 form에 입력된 id와 password 정보를  login_check.php파일에 보내줍니다. -->
       <form name = "login_input_form" action = "login_check.php" method = "post">
         <fieldset>
           <legend> LOGIN ! </legend>
@@ -50,6 +59,8 @@
                 </tr>
             </table>
           <br>
+          <!-- '회원가입'버튼 누르면 회원가입을 위한 화면인 join_form.php파일로 이동합니다.
+          '페이지안내서'버튼 누르면 '심판'페이지에 대한 설명화면인 introduce.php파일로 이동합니다. -->
           <input type="button" value="회원가입" id="btn_join_introduce" onclick="location.href='join_form.php'";>
           <br><br>
           <input type="button" value="페이지 안내서" id="btn_join_introduce" onclick="location.href='introduce.php'";>
@@ -58,6 +69,6 @@
       </form>
     </div>
   </div>
-</center>
+
 </body>
 </html>

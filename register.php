@@ -4,8 +4,7 @@
   include './user_information.php';
   $id = $_POST['user_id'];
   $pwd = $_POST['user_password'];
-
- ?>
+?>
 
 <html>
   <head>
@@ -14,9 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
     <script>
-
     function checkInput()
     {
+      // 계좌,품목,금액,사이트 이름 입력 시, 아래에 지정한 특수문자의 입력을 막기 위한 정규식입니다.
+      // g : 문자열 전체 확인, i : 문자열에서 대소문자 구분 안함.
       var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
 
       if(document.register_info.account.value.trim() == "")
@@ -57,7 +57,7 @@
       }
       else if(regExp.test(document.register_info.item.value))
       {
-        alert("특수문자를 제외하고 입력해주세요.");
+        alert("품목은 특수문자를 제외하고 입력해주세요.");
         document.register_info.item.focus();
         return;
       }
@@ -73,10 +73,10 @@
         document.register_info.price.focus();
         return;
       }
+
       document.register_info.account.value = account_int;
       document.register_info.price.value = price_int;
       document.register_info.submit();
-
     }
 
     </script>
@@ -95,6 +95,8 @@
 
         <tr>
           <td bgcolor=white>&nbsp;
+            
+            <!-- 사건의 정보를 입력받는 테이블입니다. -->
             <table id ="acc_table" align=center>
               <tr>
                 <td id = "acc_information">등록자</td>
