@@ -1,5 +1,10 @@
-/* # id 선택자
-. clsss 선택자 */
+
+/*
+해당 프로젝트에서 사용되는 css 파일입니다.
+중복되는 css코드를 막기위해 css파일을 분리하였습니다.
+이 css 파일 사용을 위해 css가 사용되는 각 파일의 <head>부분에 <link rel="stylesheet" href="common.css" type="text/css"> 추가했습니다. 
+*/
+
 body{
   align : center;
   background-color : RGB(255,255,255);

@@ -1,54 +1,60 @@
+<!--
+사기이력이 있는 특정 계좌의 사기 이력을 상세하게 볼 수 있는 페이지를 생성하는 파일입니다.
+ -->
+<?
+  session_start();
+  include './dbconn.php';
+
+  //로그인 여부를 체크합니다.
+  if(!isset($_SESSION['id']))
+  {
+    echo "
+    <script>
+    alert('로그인 후 이용하세요.');
+    location.href='index.html';
+    </script>
+    ";
+  }
+
+  // 검색한 계좌를  find.php에서 전달받아옵니다.
+  $account = $_GET['account'];
+
+  // 해당 계좌의 총 사기 금액과 총 사기 횟수를 검색합니다.
+  $query = "SELECT * FROM account_info WHERE account='$account'";
+  $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
+  $row = mysqli_fetch_array($result);
+  $cheater_code = $row["cheater_code_account"];
+
+  $query = "SELECT total_price, cheat_count FROM cheater_info WHERE cheater_code=$cheater_code";
+  $result = mysqli_query($conn, $query);
+  if(!$result)
+  {
+    echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
+    return;
+  }
+  $row = mysqli_fetch_array($result);
+
+  $total_price = $row["total_price"];
+  $cheat_count = $row["cheat_count"];
+
+?>
+
 <html>
 <head>
-  <?
-    session_start();
-    include './dbconn.php';
-
-    if(!isset($_SESSION['id']))
-    {
-      echo "
-      <script>
-      alert('로그인 후 이용하세요.');
-      location.href='index.html';
-      </script>
-      ";
-    }
-
-    $account = $_GET['account'];
-
-    $query = "SELECT * FROM account_info WHERE account='$account'";
-    $result = mysqli_query($conn, $query);
-    if(!$result)
-    {
-      echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
-      return;
-    }
-    $row = mysqli_fetch_array($result);
-    $cheater_code = $row["cheater_code_account"];
-
-    $query = "SELECT total_price, cheat_count FROM cheater_info WHERE cheater_code=$cheater_code";
-    $result = mysqli_query($conn, $query);
-    if(!$result)
-    {
-      echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
-      return;
-    }
-    $row = mysqli_fetch_array($result);
-
-    $total_price = $row["total_price"];
-    $cheat_count = $row["cheat_count"];
-
-  ?>
   <link rel="stylesheet" href="common.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
-
 </head>
 
 <body align=center>
   <br>
   <h2 id='page_title'> '<?=$account?>' 계좌의 사기 이력 </h2>
 
-<!-- 사기꾼의 총 이력을 합산하여 나타내줍니다.-->
+  <!-- 사기꾼의 총 이력을 합산하여 나타내줍니다.-->
   <center>
     <table id='delete_table' border=1>
        <tr>
