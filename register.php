@@ -18,6 +18,8 @@
       // 계좌,품목,금액,사이트 이름 입력 시, 아래에 지정한 특수문자의 입력을 막기 위한 정규식입니다.
       // g : 문자열 전체 확인, i : 문자열에서 대소문자 구분 안함.
       var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
+      var account_int = Number(document.register_info.account.value);
+      var price_int = Number(document.register_info.price.value);
 
       if(document.register_info.account.value.trim() == "")
       {
