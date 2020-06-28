@@ -1,7 +1,7 @@
 <!--
-메인 메뉴 페이지에서 등록 버튼을 누르면 나오는 사기 사건 정보를 등록하는 페이지 입니다.
-사기꾼의 계좌, 사기당한 품목,가격 그리고 사기당한 사이트와 사이트 내 사기꾼의 아이디의 정로를 입력받습니다.
-받은 정보들은 checkInput()함수의 조건에 걸리지 않게 잘 입력된 경우 정보 보호를 위해 POST방식으로 insert.php파일에 전달해 db에 정보를 등록합니다.
+메인 메뉴 페이지에서 등록 버튼을 눌러 사기 사건 정보를 등록합니다.
+사기 정보(계좌 번호, 사기당한 품목, 가격, 사기당한 사이트, 사이트 내 사기꾼의 아이디)를 입력 받습니다.
+입력 받은 정보들은 insert.php파일에 전달되어 db에 등록됩니다.
  -->
 
 <?php
@@ -19,64 +19,55 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
     <script>
-    function checkInput()
-    {
+    function checkInput(){
+      var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
       // 계좌,품목,금액,사이트 이름 입력 시, 아래에 지정한 특수문자의 입력을 막기 위한 정규식입니다.
       // g : 문자열 전체 확인, i : 문자열에서 대소문자 구분 안함.
-      var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
       var account_int = Number(document.register_info.account.value);
       var price_int = Number(document.register_info.price.value);
 
-      if(document.register_info.account.value.trim() == "")
-      {
+      // 입력되지 않은 정보를 알려줍니다.
+      if(document.register_info.account.value.trim() == ""){
         alert("사기꾼의 계좌를 입력하세요.");
         document.register_info.account.focus();
         return;
       }
-      else if(document.register_info.item.value.trim() == "")
-      {
+      else if(document.register_info.item.value.trim() == ""){
         alert("사기당한 품목을 입력하세요.");
         document.register_info.item.focus();
         return;
       }
-      else if(document.register_info.price.value.trim() == "")
-      {
+      else if(document.register_info.price.value.trim() == ""){
         alert("사기당한 금액을 입력하세요.");
         document.register_info.price.focus();
         return;
       }
-      else if(document.register_info.site_id.value.trim() == "")
-      {
+      else if(document.register_info.site_id.value.trim() == ""){
         alert("사기꾼의 아이디를 입력하세요.");
         document.register_info.site_id.focus();
         return;
       }
-      else if(document.register_info.site.value.trim() == "")
-      {
+      else if(document.register_info.site.value.trim() == ""){
         alert("사기당한 사이트를 입력하세요.");
         document.register_info.site.focus();
         return;
       }
-      else if(isNaN(account_int))
-      {
+      else if(isNaN(account_int)){ //계좌 번호는 숫자만 입력 받습니다.
         alert("계좌 번호는 숫자만 입력해주세요.");
         document.register_info.account.focus();
         return;
       }
-      else if(regExp.test(document.register_info.item.value))
-      {
+      else if(regExp.test(document.register_info.item.value)){ //특수문자가 입력되었는지 확인합니다.
         alert("품목은 특수문자를 제외하고 입력해주세요.");
         document.register_info.item.focus();
         return;
       }
-      else if(isNaN(price_int))
-      {
-        alert("금액은 숫자만 입력해주세요.");
+      else if(isNaN(price_int)){ // 가격 또한 숫자만 입력 받습니다.
+        alert("가격은 숫자만 입력해주세요.");
         document.register_info.price.focus();
         return;
       }
-      else if(regExp.test(document.register_info.site.value))
-      {
+      else if(regExp.test(document.register_info.site.value)){ //특수문자가 입력되었는지 확인합니다.
         alert("사이트의 이름만을 입력해주세요");
         document.register_info.price.focus();
         return;

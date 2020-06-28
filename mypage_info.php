@@ -1,11 +1,15 @@
+<!--
+회원정보를 보여주며
+비밀번호 변경, 이름 변경을 선택할 수 있습니다.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
   <?php
     session_start();
-    
-    if(!isset($_SESSION['id']))
-    {
+
+    if(!isset($_SESSION['id'])){
       echo "
       <script>
       alert('로그인 후 이용하세요.');
@@ -22,12 +26,12 @@
   <meta charset="UTF-8">
 
   <script>
-    function changePassword()
-    {
+    function changePassword(){
+        //비밀번호를 바꾸는 화면으로 이동합니다.
         window.open("password.php", "changePassword", "width=400, height=200, menubar=no, toolbar=no");
     }
-    function changeName()
-    {
+    function changeName(){
+        //이름을 바꾸는 화면으로 이동합니다.
         window.open("name.php", "changeName", "width=400, height=200, menubar=no, toolbar=no");
     }
   </script>

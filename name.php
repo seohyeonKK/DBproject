@@ -1,5 +1,5 @@
 <!--
-마이페이지에서 '회원 이름 변경'버튼 클릭 시, 이름 변경을 위해 실행되는 파일입니다.
+마이페이지에서 '회원 이름 변경'버튼 클릭 시, 이름 변경을 위해 변경할 이름을 입력 받습니다.
 -->
 
 <!DOCTYPE html>
@@ -7,8 +7,7 @@
 <head>
   <?php
     session_start();
-    if(!isset($_SESSION['id']))
-    {
+    if(!isset($_SESSION['id'])){
       echo "
       <script>
       alert('로그인 후 이용하세요.');
@@ -25,30 +24,22 @@
 
   <script>
 
-  //'변경'버튼을 눌렀을 때, 실행되는 함수입니다.
-  function checkInput()
-  {
+  function checkInput(){ //제대로 된 입력을 확인합니다.
     var name = document.change_user_name.user_name.value;
-
     var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi;
 
-    // 아무것도 입력이 안 된 경우, 변경할 이름을 입력하라고 경고창을 생성합니다.
-    if(name.trim() == "")
-    {
+    if(name.trim() == ""){ // 아무것도 입력이 안 된 경우, 이름을 다시 입력 받습니다.
       alert("변경할 이름을 입력하세요.");
       document.change_user_name.user_name.focus();
       return;
     }
-    // 회원 이름에 특수문자가 들어간 경우 특수문자를 제외하라고 경고창을 생성합니다.
-    else if(regExp.test(document.change_user_name.user_name.value))
-    {
+    else if(regExp.test(document.change_user_name.user_name.value)){
+      // 회원 이름에 특수문자가 들어간 경우, 특수문자를 제외하라는 경고 출력 후 다시 입력 받습니다.
       alert("이름을 입력할 때는 특수문자를 제외해주세요.");
       document.join_form.user_name.focus();
       return;
     }
-    // 변경할 이름이 공백이 아니고, 특수문자가 포함되어있지 않으면 change_name.php파일을 실행합니다.
-    else
-    {
+    else{ //제대로 된 입력을 받을 경우 change_name.php에서 이름을 바꿔줍니다.
       document.change_user_name.submit();
     }
   }

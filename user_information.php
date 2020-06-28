@@ -1,5 +1,5 @@
 <!--
-로그인 후 메뉴,등록,조회,삭제 페이지의 오른쪽 상단에 표시되는 로그인 한 회원의 정보를 보여주기위한 로그인 상태바입니다.
+로그인 후 메뉴,등록,조회,삭제 페이지의 오른쪽 상단에 표시되는 로그인한 회원의 정보를 보여주기위한 로그인 상태바입니다.
  -->
 
 <?
@@ -9,12 +9,11 @@
   $now = date("Y-m-d A h:i:s");
   echo"<br>";
 
-  // 로그인 상태바 레이아웃 div 입니다. session 아이디와 이름을 가져와 표시합니다.
+  // 로그인 상태바 레이아웃입니다. session 아이디와 이름을 가져와 표시합니다.
   echo "<div id ='login_status' style=\"text-align:right\">";
   $s_id = $_SESSION['id'];
 
-  if(!isset($_SESSION['id']))
-  {
+  if(!isset($_SESSION['id'])){
     echo "
     <script>
     alert('로그인 후 이용하세요.');
@@ -24,8 +23,7 @@
   }
   $query = "SELECT * FROM member_info WHERE member_id='$s_id'";
   $result = mysqli_query($conn,$query);
-  if(!$result)
-  {
+  if(!$result){
     echo "<script>alert('오류가 발생했습니다.');</script>";
     return;
   }

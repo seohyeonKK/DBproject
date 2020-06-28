@@ -1,9 +1,9 @@
+<!-- 마이페이지에 접근하기 전 비밀번호로 본인 확인을 합니다. -->
 <html>
 <head>
   <?php
     session_start();
-    if(!isset($_SESSION['id']))
-    {
+    if(!isset($_SESSION['id'])){
       echo "
       <script>
       alert('로그인 후 이용하세요.');
@@ -20,16 +20,13 @@
   <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
   <script>
-  function checkPassword()
-  {
+  function checkPassword(){ //비밀번호를 통해 본인인지 확인합니다.
     var password = "<?echo $pwd;?>";
     var check_it = document.check.password_check.value;
-    if(check_it == password)
-    {
+    if(check_it == password){
       location.href='./mypage_info.php'
     }
-    else
-    {
+    else{
       alert("다시 입력해주세요.");
       location.href='./mypage.php'
     }

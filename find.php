@@ -1,11 +1,20 @@
 <!--
 특정 계좌의 사기이력을 조회하기 위한 파일입니다.
-검색하고 싶은 계좌의 정보를 입력받아 find.php파일로 전달해서 해당 계좌의 사기 이력을 알려줍니다.
+검색하고 싶은 계좌의 정보를 입력받아 find.php파일로 전달해서 해당 계좌의 사기 이력 여부를 알려줍니다.
 -->
 
 <?php
   session_start();
   include './user_information.php';
+  include './dbconn.php';
+  if(!isset($_SESSION['id'])){
+    echo "
+    <script>
+    alert('로그인 후 이용하세요.');
+    location.href='index.html';
+    </script>
+    ";
+  }
  ?>
 
  <!DOCTYPE html>
@@ -16,18 +25,17 @@
      <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
      <script>
-     // 계좌 검색 시 검색 텍스 박스에
-     // 1.아무것도 입력 안 된 경우, 2.숫자 외의 문자가 입력 된 경우 두 가지의 경우에 경고창을 띄워줍니다.
-     // 성공적으로 입력되었을 때에는 해당 입력받은 find_form의 데이터를 find.php파일에 전달해주어 입력받은 계좌의 사기 이력을 조회해 줍니다.
+     // 계좌 검색 시
+     // 1.아무것도 입력 안 된 경우, 2.숫자 외의 문자가 입력 된 경우
+     // 두 가지의 경우에 경고창을 띄워줍니다.
+     // 성공적으로 입력되었을 때에는 해당 입력받은 find_form의 데이터를 find.php에 전달해주어 입력받은 계좌의 사기 이력을 조회해 줍니다.
       function searchAccount(){
-        if(document.find_form.account.value.trim() == "")
-        {
+        if(document.find_form.account.value.trim() == ""){
           alert('계좌를 입력하세요.');
           document.find_form.account.focus();
           return;
         }
-        else if(isNaN(document.find_form.account.value))
-        {
+        else if(isNaN(document.find_form.account.value)){
           alert("검색할 계좌 번호의 숫자만 입력해주세요.");
           document.find_form.account.focus();
           return;
@@ -73,50 +81,34 @@
 
 <div id="find_css">
   <?
-   session_start();
-   include './dbconn.php';
-   if(!isset($_SESSION['id']))
-   {
-     echo "
-     <script>
-     alert('로그인 후 이용하세요.');
-     location.href='index.html';
-     </script>
-     ";
-   }
+   // 입력한 계좌에 대한 사기 여부를 검색하여 보여줍니다.
    $account = $_POST['account'];
    $string = "계좌를 입력해주세요.";
 
    $query = "SELECT * FROM account_info WHERE account='$account'";
    $result = mysqli_query($conn, $query);
-   if(!$result)
-   {
+   if(!$result){
      echo "<script>alert('계좌를 조회하는 과정에서 오류가 발생했습니다.');</script>";
      return;
    }
    $row = mysqli_fetch_array($result);
 
 
-   if($account)
-   {
+   if($account){
      echo "'$account' 를 조회한 결과입니다.<br><br>";
    }
 
-   if ($row)
-   {
+   if ($row){
       $string = "해당 계좌의 사기 이력이 있습니다.";
       echo $string;
       echo "<br><br>";
       echo "<a id='find_link_css' href='find_list.php?account=$account'> ➙ 사기 내역 조회 하러가기</a>";
    }
-   else
-   {
-     if(!$account)
-     {
+   else{
+     if(!$account){
        $string = "계좌를 입력해주세요.";
      }
-     else
-     {
+     else{
        $string = "등록된 계좌가 없습니다.";
      }
      echo $string;
