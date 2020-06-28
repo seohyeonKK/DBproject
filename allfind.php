@@ -9,8 +9,7 @@
     session_start();
     include './dbconn.php';
 
-    if(!isset($_SESSION['id']))
-    {
+    if(!isset($_SESSION['id'])){
       echo "
       <script>
       alert('로그인 후 이용하세요.');
@@ -25,8 +24,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
     <script type="text/javascript">
-    function select_align(e)
-    {
+
+    // 정렬 순서에 대해 선택한 정보를 option으로 넘깁니다.
+    function select_align(e){
       window.location.href = "allfind.php?option=" + e.value;
     }
 
@@ -72,38 +72,37 @@
     <?
       //사건의 정보가 담긴 cheat_info 테이블의 데이터들을 불러와 등록된 사기 목록을 보여줍니다.
 
-      if($option=="1"){
+      if($option=="1"){ //등록 번호 순으로 정렬합니다.
         $query = "SELECT * FROM cheat_site_info ORDER BY register_code";
       }
-      else if($option=="2"){
+      else if($option=="2"){ // 계좌 번호 순으로 정렬합니다.
         $query = "SELECT * FROM cheat_site_info ORDER BY account";
       }
-      else if($option=="3"){
+      else if($option=="3"){ // 품목의 이름 순으로 정렬합니다.
         $query = "SELECT * FROM cheat_site_info ORDER BY item";
       }
-      else if($option=="4"){
+      else if($option=="4"){ // 가격이 낮은 순에서 높은 순으로 정렬합니다.
         $query = "SELECT * FROM cheat_site_info ORDER BY price";
       }
-      else if($option=="5"){
+      else if($option=="5"){ //사기꾼의 아이디 정보로 정렬합니다.
         $query = "SELECT * FROM cheat_site_info ORDER BY cheater_id";
       }
-      else if($option=="6"){
+      else if($option=="6"){ // 사기 당한 사이트 정보로 정렬합니다.
         $query = "SELECT * FROM cheat_site_info ORDER BY site";
       }
-      else {
+      else { // 그 외는 모두 등록 번호 순으로 정렬합니다. (기본)
         $query = "SELECT * FROM cheat_site_info ORDER BY register_code";
       }
 
       $result = mysqli_query($conn, $query);
-      if(!$result)
-      {
+      if(!$result){
         echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
         return;
       }
 
-      // mysqli_query를 통해 얻은 result set에서 mysqli_fetch_array()함수를 통해  레코드를 1개씩 반환받아 row배열에 저장합니다.
-      while ($row = mysqli_fetch_array($result))
-      {
+      // mysqli_query를 통해 얻은 result set에서 mysqli_fetch_array()함수를 통해 레코드를 한 개씩 반환받아 row배열에 저장합니다.
+      // result set을 한 개씩 출력합니다.
+      while ($row = mysqli_fetch_array($result)){
         $account = $row["account"];
         $item = $row["item"];
         $price = $row["price"];
@@ -127,11 +126,6 @@
          ";
       }
 
-      // echo "<br><br><br>";
-      // echo "<a href='find.php'><input id='btn_delete' type='button' value='계좌로 조회'></a>";
-      // echo "<br><br>";
-      // echo "<a href='main.php'><input id='btn_ok' type='button' value='메인페이지'></a><br><br>
-      // </center>";
 
       mysqli_close($conn);
     ?>

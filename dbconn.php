@@ -10,7 +10,7 @@ db연결이 필요 할 때에 해당 파일을 호출합니다.
      $db_name = "db_project";
      $conn = mysqli_connect($host_name, $db_user_id, $db_pwd, $db_name);
 
-     /* check connection */
+     /* db연결 확인 */
      if ($conn->connect_error)
      {
        printf("Connect failed: %s\n", $conn->connect_error);

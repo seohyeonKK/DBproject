@@ -1,13 +1,12 @@
 <!--
-사기이력이 있는 특정 계좌의 사기 이력을 상세하게 볼 수 있는 페이지를 생성하는 파일입니다.
+사기이력이 있는 특정 계좌의 사기 이력을 상세하게 보여줍니다.
  -->
 <?
   session_start();
   include './dbconn.php';
 
   //로그인 여부를 체크합니다.
-  if(!isset($_SESSION['id']))
-  {
+  if(!isset($_SESSION['id'])){
     echo "
     <script>
     alert('로그인 후 이용하세요.');
@@ -19,11 +18,10 @@
   // 검색한 계좌를  find.php에서 전달받아옵니다.
   $account = $_GET['account'];
 
-  // 해당 계좌의 총 사기 금액과 총 사기 횟수를 검색합니다.
+  // 해당 계좌의 사기꾼 정보(해당 계좌의 총사기금액, 총사기횟수)를 가져와 보여줍니다.
   $query = "SELECT * FROM account_info WHERE account='$account'";
   $result = mysqli_query($conn, $query);
-  if(!$result)
-  {
+  if(!$result){
     echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
     return;
   }
@@ -32,8 +30,7 @@
 
   $query = "SELECT total_price, cheat_count FROM cheater_info WHERE cheater_code=$cheater_code";
   $result = mysqli_query($conn, $query);
-  if(!$result)
-  {
+  if(!$result){
     echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
     return;
   }
@@ -54,7 +51,7 @@
   <br>
   <h2 id='page_title'> '<?=$account?>' 계좌의 사기 이력 </h2>
 
-  <!-- 사기꾼의 총 이력을 합산하여 나타내줍니다.-->
+  <!-- 앞서 받아온 정보를 통해 사기꾼의 총 이력을 나타냅니다.-->
   <center>
     <table id='delete_table' border=1>
        <tr>
@@ -72,7 +69,7 @@
 </body>
 </html>
 
-
+<!-- 해당 사기꾼이 사기를 친 모든 사기 정보를 나열해 보여줍니다. -->
 <?
   echo "
   <center>
@@ -90,14 +87,12 @@
 
   $query = "SELECT * FROM cheat_site_info WHERE cheater_code_cheat=$cheater_code";
   $result = mysqli_query($conn, $query);
-  if(!$result)
-  {
+  if(!$result){
     echo "<script>alert('사기 정보를 조회하는 과정에서 오류가 발생했습니다.');</script>";
     return;
   }
 
-  while ($row = mysqli_fetch_array($result))
-  {
+  while ($row = mysqli_fetch_array($result)){
     $item = $row["item"];
     $price = $row["price"];
     $cheater_id = $row["cheater_id"];
