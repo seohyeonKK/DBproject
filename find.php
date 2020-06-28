@@ -1,3 +1,8 @@
+<!--
+특정 계좌의 사기이력을 조회하기 위한 파일입니다.
+검색하고 싶은 계좌의 정보를 입력받아 find.php파일로 전달해서 해당 계좌의 사기 이력을 알려줍니다.
+-->
+
 <?php
   session_start();
   include './user_information.php';
@@ -11,10 +16,19 @@
      <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
 
      <script>
+     // 계좌 검색 시 검색 텍스 박스에
+     // 1.아무것도 입력 안 된 경우, 2.숫자 외의 문자가 입력 된 경우 두 가지의 경우에 경고창을 띄워줍니다.
+     // 성공적으로 입력되었을 때에는 해당 입력받은 find_form의 데이터를 find.php파일에 전달해주어 입력받은 계좌의 사기 이력을 조회해 줍니다.
       function searchAccount(){
         if(document.find_form.account.value.trim() == "")
         {
           alert('계좌를 입력하세요.');
+          document.find_form.account.focus();
+          return;
+        }
+        else if(isNaN(document.find_form.account.value))
+        {
+          alert("검색할 계좌 번호의 숫자만 입력해주세요.");
           document.find_form.account.focus();
           return;
         }
