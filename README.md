@@ -11,9 +11,16 @@ GitHub 저장소("https://github.com/seohyeonKK/DBproject.git")에서 파일을 
 
 ###2.2 데이터 설치
 dump 파일은 명령 프롬프트(cmd), workbench에서 적용해 사용할 수 있다.
-사용한 root 계정의 비밀번호는 '0000'이다.
-dump 파일은 root계정에 접속한 뒤, (0)부터 (7)까지 이름에 표기된 숫자의 순서대로 설치해주면 된다.
-'(0)db_project'는 데이터베이스 'db_project'를 만드는 파일이며, '(7)db_project_routines'는 뷰를 생성하는 파일이다.
+사용한 root 계정의 비밀번호는 '0000'이며 'db_project'라는 데이터베이스를 만들어 그 데이터베이스에서 설치해야 한다.
+
+1. workbench에서 설치
+상단 메뉴 바의 'Server'의 'Data Import'를 선택한 뒤 Import Options에서 첫 번째 Import from Dump Project Folder 선택한다.
+그 후, dump파일을 선택해 start import 버튼을 누르면 된다.
+
+2. cmd에서 설치
+dump 파일은 root계정에 접속한 뒤, (1)부터 (7)까지 이름에 표기된 숫자의 순서대로 설치해주면 된다.
+특히 (7)은 뷰를 생성하는 파일로 가장 마지막에 설치해주어야 한다.
+
 추가로, 다른 사용자, 다른 비밀번호를 사용하고 싶다면 'dbconn.php'에서 'db_user_id','db_pwd'를 바꾸어주면 된다.
 
 
