@@ -5,14 +5,13 @@ db연결이 필요 할 때에 해당 파일을 호출합니다.
 
 <?
      $host_name = "localhost";
-     $db_user_id = "db_admin";
+     $db_user_id = "root";
      $db_pwd = "0000";
      $db_name = "db_project";
      $conn = mysqli_connect($host_name, $db_user_id, $db_pwd, $db_name);
 
      /* db연결 확인 */
-     if ($conn->connect_error)
-     {
+     if ($conn->connect_error){
        printf("Connect failed: %s\n", $conn->connect_error);
        exit();
      }
