@@ -6,11 +6,29 @@
 사이트의 회원에게 사기를 당했을 경우에 계좌번호와 사기 내역을 등록할 수 있는 기능과 특정 계좌의 검색을 통해 사기 여부 조회 기능을 제공한다.
 
 ##2. 설치
-git clone "https://github.com/seohyeonKK/DBproject.git" 후 사용할 수 있다.  
+###2.1 다운로드
+GitHub 저장소("https://github.com/seohyeonKK/DBproject.git")에서 파일을 내려받은 후 사용할 수 있다.  
+
+###2.2 데이터 설치
+dump 파일은 명령 프롬프트(cmd), workbench에서 적용해 사용할 수 있다.
+사용한 root 계정의 비밀번호는 '0000'이며 'db_project'라는 데이터베이스를 만들어 그 데이터베이스에서 설치해야 한다.
+
+1. workbench에서 설치
+상단 메뉴 바의 'Server'의 'Data Import'를 선택한 뒤 Import Options에서 첫 번째 Import from Dump Project Folder 선택한다.
+그 후, dump파일을 선택해 start import 버튼을 누르면 된다.
+
+2. cmd에서 설치
+dump 파일은 root계정에 접속한 뒤, (1)부터 (7)까지 이름에 표기된 숫자의 순서대로 설치해주면 된다.
+특히 (7)은 뷰를 생성하는 파일로 가장 마지막에 설치해주어야 한다.
+
+추가로, 다른 사용자, 다른 비밀번호를 사용하고 싶다면 'dbconn.php'에서 'db_user_id','db_pwd'를 바꾸어주면 된다.
+
+
 
 ###3. 사용방법
-1. 덤프 파일 설치 후 사용  
-2.
+1. mysql 데이터베이스에 데이터를 설치해준다.
+2. apache24 아래, htdocs에 소스 코드 파일을 설치해준다.
+3. 인터넷 주소창에 localhost를 입력하여 서비스를 사용할 수 있다.
 
 ### 회원가입
   '아이디','비밀번호','이름'의 입력을 통해 회원가입을 한다.  
